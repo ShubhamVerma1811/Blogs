@@ -1,1 +1,5 @@
-{}
+{
+  "bracketSameLine": true,
+  "proseWrap": "always",
+  "singleQuote": true
+}

@@ -20,7 +20,8 @@
 
 ### Number
 
-This data type can hold integers from -Infinity to +Infinity including floating-point numbers.
+This data type can hold integers from -Infinity to +Infinity including
+floating-point numbers.
 
 ```js
 var a = 2;
@@ -36,10 +37,10 @@ console.log(typeof b); // "number"
 A String is a sequence of characters. String are denoted using `" "` or `' '`
 
 ```js
-var name = "Developer";
+var name = 'Developer';
 console.log(typeof name); // string
 
-var letter = "A";
+var letter = 'A';
 console.log(typeof letter); // string
 ```
 
@@ -61,21 +62,22 @@ console.log(typeof isLoggedIn); // boolean
 
 ### Arrays
 
-Arrays are a collection of similar data types. They are denoted using square brackets `[ ]`
+Arrays are a collection of similar data types. They are denoted using square
+brackets `[ ]`
 
 ```js
 var numbers = [1, 2, 3, 4, 5]; // array of numbers
-var colors = ["red", "green", "blue"]; // array of strings
+var colors = ['red', 'green', 'blue']; // array of strings
 ```
 
 But, in JavaScript, an array can hold various data types too.
 
 ```js
-var numbersAndColors = [1, "blue", 2, "red", 3];
+var numbersAndColors = [1, 'blue', 2, 'red', 3];
 ```
 
-You can access the value of the array by its index.
-Every array has an index that starts with 0.
+You can access the value of the array by its index. Every array has an index
+that starts with 0.
 
 ```js
 console.log(colors[0]); //red
@@ -89,8 +91,8 @@ console.log(numbers[1]); // 2
 
 ### Object
 
-In JavaScript, an object is a collection of key: value pairs.
-They are denoted using the `{}` brackets
+In JavaScript, an object is a collection of key: value pairs. They are denoted
+using the `{}` brackets
 
 ```js
 var obj = {
@@ -113,10 +115,10 @@ Syntax:
 
 ```js
 var obj = {
-  name: "Shubham",
+  name: 'Shubham',
   age: 20,
-  role: "Frontend Developer",
-  100: "Hundred",
+  role: 'Frontend Developer',
+  100: 'Hundred',
 };
 
 console.log(obj.name); // "Shubham"

@@ -29,10 +29,12 @@ Bytes is a platform to share bite-sized learnings of any tech topics.
 
 ## What inspired me to create Bytes?
 
-- There are so many content creators out there that post such good content on various social media platforms.
-  Due to that, the knowledge gets lost between their posts and the social media itself.
+- There are so many content creators out there that post such good content on
+  various social media platforms. Due to that, the knowledge gets lost between
+  their posts and the social media itself.
 
-- So why not have a single platform where they could post their knowledgeable content.
+- So why not have a single platform where they could post their knowledgeable
+  content.
 
 - This idea helped in the creation of Bytes!
 
@@ -40,8 +42,7 @@ Bytes is a platform to share bite-sized learnings of any tech topics.
 
 ## Source Code
 
-Github :
-https://github.com/ShubhamVerma1811/Bytes
+Github : https://github.com/ShubhamVerma1811/Bytes
 
 ---
 
@@ -74,8 +75,8 @@ Live - https://bytes.vercel.app
 - You can Sign Up on Bytes
 - Go over to the Upload page
 - Add your byte title, tags, and images of your byte.
-- That's it. It's that simple to upload content on Bytes!
-  -Share your bytes on other platforms.
+- That's it. It's that simple to upload content on Bytes! -Share your bytes on
+  other platforms.
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624078754965/vxd15ENDr.png)
 
@@ -104,7 +105,8 @@ Live - https://bytes.vercel.app
 
 ### Reactions
 
-- As the name of the website is Bytes, the reactions to the posts are also considered a byte!
+- As the name of the website is Bytes, the reactions to the posts are also
+  considered a byte!
 - So, if a post had 1024 🔥 reactions, it would display it as 1KB 🔥.
 - Get it? 1024 Bytes = 1KB. Cool right!
 
@@ -114,9 +116,12 @@ Live - https://bytes.vercel.app
 
 ## Future Additions
 
-- The HashNode - HarperDB hackathon was a great opportunity to make something like [Bytes](https://bytes.vercel.app)
-- Until the hackathon, Bytes would run in demo mode, meaning it'll only allow "4" images per post to reduce spam.
-- If people find Bytes useful, in the future, Bytes could be an invite-only website where genuine content creators could post their learnings!
+- The HashNode - HarperDB hackathon was a great opportunity to make something
+  like [Bytes](https://bytes.vercel.app)
+- Until the hackathon, Bytes would run in demo mode, meaning it'll only allow
+  "4" images per post to reduce spam.
+- If people find Bytes useful, in the future, Bytes could be an invite-only
+  website where genuine content creators could post their learnings!
 - And it's Open source so, anyone is open to contributing/fork this project!
 - I will be writing a separate blog explaining the technical parts of Bytes!
 

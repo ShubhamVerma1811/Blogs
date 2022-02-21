@@ -1,8 +1,8 @@
 # DuckDuckGo - The Search Engine for the Developers
 
-You might have heard about DDG or even use it every day like me.
-But there are many hidden tricks in it that no other search engine can perform,
-Today I'll be showing you some of those tricks
+You might have heard about DDG or even use it every day like me. But there are
+many hidden tricks in it that no other search engine can perform, Today I'll be
+showing you some of those tricks
 
 <!-- TOC -->
 
@@ -27,7 +27,8 @@ Today I'll be showing you some of those tricks
 
 ## Shorten your URL in one search
 
-- Type "shorten (your link)" and you would get an instant shortened link to share anywhere.
+- Type "shorten (your link)" and you would get an instant shortened link to
+  share anywhere.
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623928447649/-Fp3RuHjV.png)
 
@@ -54,7 +55,8 @@ Today I'll be showing you some of those tricks
 
 - You can find cheatsheets for most of the things in one search
 - Type "(your_thing) cheatsheet"
-- Ex - "JS Cheatsheet", "VSCode cheatsheet", "React cheatsheet", "AWS Cheatsheet"
+- Ex - "JS Cheatsheet", "VSCode cheatsheet", "React cheatsheet", "AWS
+  Cheatsheet"
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623928544404/snZJ_FS3g.png)
 

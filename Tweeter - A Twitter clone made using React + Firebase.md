@@ -1,8 +1,5 @@
-For the curious ones: <br>
-Live Demo : https://tweeter-eight.vercel.app
-<br>
-GitHub Repo : https://github.com/ShubhamVerma1811/Tweeter
-<br>
+For the curious ones: <br> Live Demo : https://tweeter-eight.vercel.app <br>
+GitHub Repo : https://github.com/ShubhamVerma1811/Tweeter <br>
 
 ## Table of Content
 
@@ -59,12 +56,13 @@ Here's the look at the dependencies in the `package.json` file
 
 ### TailwindCSS
 
-- I chose TailwindCSS because it's the best!
-  I didn't have to care about class names. Even though Tailwind has its limits.
+- I chose TailwindCSS because it's the best! I didn't have to care about class
+  names. Even though Tailwind has its limits.
 
 ### Firebase
 
-- The big one, Firestore. Now Twitter is highly SQL based and Firestore is a NoSQL DB. The reason I chose Firestore because I wanted to learn it.
+- The big one, Firestore. Now Twitter is highly SQL based and Firestore is a
+  NoSQL DB. The reason I chose Firestore because I wanted to learn it.
 
 ---
 
@@ -72,20 +70,25 @@ Here's the look at the dependencies in the `package.json` file
 
 ### TailwindCSS
 
-- The problem with Tailwind is that it has its limits. Not every CSS styles are supported, you need to extend it if you need to use it.
-- This is a great feature, but for a person like me who never worked with the `tailwind.config.js` file, it was an issue and I had to use inline style to achieve certain looks.
+- The problem with Tailwind is that it has its limits. Not every CSS styles are
+  supported, you need to extend it if you need to use it.
+- This is a great feature, but for a person like me who never worked with the
+  `tailwind.config.js` file, it was an issue and I had to use inline style to
+  achieve certain looks.
 
 ### Firestore
 
 - Firestore is a NoSQL DB and Tweeter uses SQL relationships.
 - So to solve this, I created SQL-like relations in Firestore.
-- But due to the nature of Firestore which is NoSQL and me writing SQL-like relationships, the query takes a long time to execute.
+- But due to the nature of Firestore which is NoSQL and me writing SQL-like
+  relationships, the query takes a long time to execute.
 - This is the thing I realized that why Firebase was a bad choice.
-- The major feature of Twitter would be "retweets", but I had to skip that implement' in FIrestore because the query would take even more time to execute.
+- The major feature of Twitter would be "retweets", but I had to skip that
+  implement' in FIrestore because the query would take even more time to
+  execute.
 - Use of Firestore made me realize how powerful SQL databases are.
 
-For example:
-A user table that looked like
+For example: A user table that looked like
 
 | userID |     email     |      name | username   |   createdAt   |
 | :----- | :-----------: | --------: | :--------- | :-----------: |
@@ -103,8 +106,8 @@ And a tweets table that looks like
 
 ### Authentication
 
-- The authentication was implemented using Firebase Authentication.
-  It used the "Email/Password" method to authenticate.
+- The authentication was implemented using Firebase Authentication. It used the
+  "Email/Password" method to authenticate.
 - To use the service, a user needs to sign up.
 
 ### Tweets
@@ -125,4 +128,5 @@ And a tweets table that looks like
 
 ---
 
-If you liked this blog then do let me know. I am new to blogging and would love to know your thoughts.
+If you liked this blog then do let me know. I am new to blogging and would love
+to know your thoughts.

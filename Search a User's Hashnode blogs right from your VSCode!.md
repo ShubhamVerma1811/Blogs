@@ -1,13 +1,16 @@
 We spent most of our time in VSCode so why not even search blogs from it!
 
-- The concept behind this extension was simple, Just enter the username of the person and the blogs get displayed right within code.
+- The concept behind this extension was simple, Just enter the username of the
+  person and the blogs get displayed right within code.
 - From there you can search the blogs, choose the blog that you'd like to open.
 
-This is the first feature of extension, I am planning to add more features to it in the future like pagination.
+This is the first feature of extension, I am planning to add more features to it
+in the future like pagination.
 
 Edit: Added Pagination!
 
-Download Link: https://marketplace.visualstudio.com/items?itemName=ShubhamVerma18.hashnode-vscode
+Download Link:
+https://marketplace.visualstudio.com/items?itemName=ShubhamVerma18.hashnode-vscode
 
 ![alt](https://cdn.hashnode.com/res/hashnode/image/upload/v1613609879128/q_F-KYZFa.gif)
 

@@ -1,18 +1,22 @@
 Protecting Routes from unauthenticated users is a crucial part of any app.
 
-In this blog, I'll show you exactly how to do that with your NextJS pages using Higher-Order Components. [[1]](#footer)
+In this blog, I'll show you exactly how to do that with your NextJS pages using
+Higher-Order Components. [[1]](#footer)
 
-There can be several ways of authenticating a user like using cookies or JWT tokens.[[2]](#footer)
+There can be several ways of authenticating a user like using cookies or JWT
+tokens.[[2]](#footer)
 
-I'll be using JWT token as an example, where the `accessToken` is stored in the `localStorage`
+I'll be using JWT token as an example, where the `accessToken` is stored in the
+`localStorage`
 
-Let's consider a page "/dashboard". This page should be only accessed by authenticated users
+Let's consider a page "/dashboard". This page should be only accessed by
+authenticated users
 
 ## In our `Dashboard.jsx`
 
 ```jsx
 // pages/dashboard.jsx
-import withAuth from "HOC/withAuth.js";
+import withAuth from 'HOC/withAuth.js';
 const Dashboard = ({ user }) => {
   return (
     <div>
@@ -25,7 +29,8 @@ const Dashboard = ({ user }) => {
 export default withAuth(Dashboard);
 ```
 
-Notice that we are importing `withAuth.jsx` and exporting the page by passing it as an argument. That is all we need to do for our pages.
+Notice that we are importing `withAuth.jsx` and exporting the page by passing it
+as an argument. That is all we need to do for our pages.
 
 ---
 
@@ -40,18 +45,18 @@ I'll show you two methods of implementations:
 
 ```js
 // HOC/withAuth.jsx
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 const withAuth = (WrappedComponent) => {
   return (props) => {
     // checks whether we are on client / browser or server.
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const Router = useRouter();
 
-      const accessToken = localStorage.getItem("accessToken");
+      const accessToken = localStorage.getItem('accessToken');
 
       // If there is no access token we redirect to "/" page.
       if (!accessToken) {
-        Router.replace("/");
+        Router.replace('/');
         return null;
       }
 
@@ -74,9 +79,9 @@ export default withAuth;
 
 ```js
 // HOC/withAuth.jsx
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import verifyToken from "services/verifyToken";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import verifyToken from 'services/verifyToken';
 
 const withAuth = (WrappedComponent) => {
   return (props) => {
@@ -84,10 +89,10 @@ const withAuth = (WrappedComponent) => {
     const [verified, setVerified] = useState(false);
 
     useEffect(async () => {
-      const accessToken = localStorage.getItem("accessToken");
+      const accessToken = localStorage.getItem('accessToken');
       // if no accessToken was found,then we redirect to "/" page.
       if (!accessToken) {
-        Router.replace("/");
+        Router.replace('/');
       } else {
         // we call the api that verifies the token.
         const data = await verifyToken(accessToken);
@@ -96,8 +101,8 @@ const withAuth = (WrappedComponent) => {
           setVerified(data.verified);
         } else {
           // If the token was fraud we first remove it from localStorage and then redirect to "/"
-          localStorage.removeItem("accessToken");
-          Router.replace("/");
+          localStorage.removeItem('accessToken');
+          Router.replace('/');
         }
       }
     }, []);
@@ -125,4 +130,5 @@ export default withAuth;
 
 Wasn't that easy!
 
-I hope this blog helped you. If you got any queries or feedback then let me know 😀
+I hope this blog helped you. If you got any queries or feedback then let me know
+😀

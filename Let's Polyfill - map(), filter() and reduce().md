@@ -8,8 +8,8 @@
 
 ## Map
 
-map is an Array method that takes in a callback and returns
-an array of items that were returned from the callback
+map is an Array method that takes in a callback and returns an array of items
+that were returned from the callback
 
 Example:
 
@@ -26,7 +26,8 @@ Let's create our own `map` method called `myMap`
 - It has a results array that gets returned by the `myMap` function.
 - The returned values from our `cb` are pushed in the `results` array.
 - The `this` here would be the array that we will use this `myMap` function on.
-- The traditional `map()` callback can take 3 args. element, index and the source arr. We have done the same.
+- The traditional `map()` callback can take 3 args. element, index and the
+  source arr. We have done the same.
 
 ```js
 function myMap(cb) {
@@ -57,8 +58,8 @@ console.log(myMapResult); //[2, 4, 6, 8, 10, 12];
 
 ## Filter
 
-`filter()` is an Array method that takes in a callback and returns
-an array of items that satisfy the condition provided in our callback
+`filter()` is an Array method that takes in a callback and returns an array of
+items that satisfy the condition provided in our callback
 
 Example:
 
@@ -74,8 +75,10 @@ Let's create our own `filter` method called `myFilter`
 - `myFilter()` takes in a parameter which a callback/function.
 - It has a results array that gets returned at the end.
 - The returned values from our `cb` are pushed in the `results` array.
-- The `this` here would be the array that we will use this `myFilter` function on.
-- The traditional `filter()` callback can take 3 args. element, index and the source arr. We have done the same.
+- The `this` here would be the array that we will use this `myFilter` function
+  on.
+- The traditional `filter()` callback can take 3 args. element, index and the
+  source arr. We have done the same.
 
 ```js
 function myFilter(cb) {
@@ -96,12 +99,12 @@ Array.prototype.myFilter = myFilter;
 const arr = [1, 2, 3, 4, 5, 6];
 
 const foo = [
-  { name: "S", age: 2 },
-  { name: "V", age: 3 },
+  { name: 'S', age: 2 },
+  { name: 'V', age: 3 },
 ];
 
 const myFilterResult = foo.myFilter((el, _idx, _arr) => {
-  return el.name !== "S";
+  return el.name !== 'S';
 });
 
 console.log(myFilterResult); // [{ name: "V", age: 3 }]
@@ -113,10 +116,10 @@ console.log(myFilterResult); // [{ name: "V", age: 3 }]
 
 Here the MDN definition of it.
 
-The `reduce()` method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+The `reduce()` method executes a reducer function (that you provide) on each
+element of the array, resulting in a single output value.
 
-It takes in two important parameters.
-`accumulater` and `currentValue`
+It takes in two important parameters. `accumulater` and `currentValue`
 
 Example:
 
@@ -135,8 +138,10 @@ Lets create our own `reduce()` method called `myReduce()`
 - `myReduce()` takes in a parameter which a callback/function.
 - It returns a single reduced value.
 - The returned values from our `cb` is assigned to the `acc`.
-- The `this` here would be the array that we will use this `myReduced` function on.
-- The traditional `reduced()` callback can take 4 args. accumulator, currentValue, index and the source arr. We have done the same.
+- The `this` here would be the array that we will use this `myReduced` function
+  on.
+- The traditional `reduced()` callback can take 4 args. accumulator,
+  currentValue, index and the source arr. We have done the same.
 
 ```js
 function myReduce(cb, initialValue) {
@@ -171,10 +176,13 @@ console.log(myReduceResult); // 21
 
 ---
 
-If you find any errors or edge cases in the above code then please let me know. I am happy to learn about them and add them here.
+If you find any errors or edge cases in the above code then please let me know.
+I am happy to learn about them and add them here.
 
-In the next blog in this series, I'll try and write our own debounce function from the loadash library
+In the next blog in this series, I'll try and write our own debounce function
+from the loadash library
 
-Also, if you guys want to see polyfills of your libs then let me know in the comments.
+Also, if you guys want to see polyfills of your libs then let me know in the
+comments.
 
 Hope this blog was helpful to you.

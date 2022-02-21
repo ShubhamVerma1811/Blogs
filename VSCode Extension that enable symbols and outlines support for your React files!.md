@@ -1,7 +1,8 @@
-While working on React files in VSCode the most annoying thing is the lack of symbols & outlines support.
+While working on React files in VSCode the most annoying thing is the lack of
+symbols & outlines support.
 
-🎉 So I created an extension that can finally support that for your React files!🎉
-Links below!
+🎉 So I created an extension that can finally support that for your React
+files!🎉 Links below!
 
 Here are the before and after screenshots:
 
@@ -13,17 +14,22 @@ Here are the before and after screenshots:
 
 I am open for contributions.Feel free to raise features requests or PRS!
 
-Head over to the [Github repo](https://github.com/ShubhamVerma1811/vscode-react-outline) and make a pull request or raise features requests or issues.
+Head over to the
+[Github repo](https://github.com/ShubhamVerma1811/vscode-react-outline) and make
+a pull request or raise features requests or issues.
 
 ### Running Locally
 
-Clone this [repo](https://github.com/ShubhamVerma1811/vscode-react-outline) and start the "Debug: Start Debugging" command
+Clone this [repo](https://github.com/ShubhamVerma1811/vscode-react-outline) and
+start the "Debug: Start Debugging" command
 
 ---
 
 ## Support
 
-If you liked this extensions then check out my other [extensions](https://marketplace.visualstudio.com/publishers/ShubhamVerma18) and [follow me on twitter](https://shbm.fyi/tw).
+If you liked this extensions then check out my other
+[extensions](https://marketplace.visualstudio.com/publishers/ShubhamVerma18) and
+[follow me on twitter](https://shbm.fyi/tw).
 
 You can also Buy Me a Coffee
 

@@ -1,0 +1,21 @@
+{
+  "name": "notion-blogs-to-gh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Shubham Verma",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@notionhq/client": "^1.0.4",
+    "dotenv": "^16.0.1",
+    "notion-to-md": "^2.3.3",
+    "simple-git": "^3.7.1"
+  },
+  "scripts": {
+    "dev": "node index.js",
+    "format": "prettier --write * --ignore-path .gitignore"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}

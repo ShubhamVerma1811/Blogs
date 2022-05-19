@@ -1,0 +1,20 @@
+name: Sync Notion Blogs to GitHub
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Fetch-Notion-Blogs-and-Write-to-File:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: create env file
+        run: |
+          touch .env
+          echo NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} >> .env
+          echo NOTION_BLOGS_DATABASE_ID=${{ secrets.NOTION_BLOGS_DATABASE_ID }} >> .env
+      - name: Fetch Notion Blogs and Wirte to File
+        run: |
+          yarn
+          yarn dev

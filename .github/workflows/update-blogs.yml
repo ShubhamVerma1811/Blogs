@@ -1,8 +1,8 @@
 name: Sync Notion Blogs to GitHub
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    # “At minute 0 past every 6th hour.”
+    cron: "0 */6 * * *"
 jobs:
   Fetch-Notion-Blogs-and-Write-to-File:
     runs-on: ubuntu-latest

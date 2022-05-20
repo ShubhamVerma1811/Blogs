@@ -69,15 +69,18 @@ const handleGitOps = async () => {
       "user.email",
       "25576658+ShubhamVerma1811@users.noreply.github.com"
     )
-    .add("./blogs/", () => {
-      console.log("git add...")
+    .pull("origin", "main", {}, (err) => {
+      console.log("PULL ERROR", err)
     })
-    .commit(`Updated blogs on ${new Date().toISOString()}`, (err) => {
-      console.error("COMMIT", err)
+    .add("./blogs/", (err) => {
+      console.log("ADD ERROR", err)
+    })
+    .commit(`Updated blogs on ${new Date().toLocaleString()}`, (err) => {
+      console.error("COMMIT ERROR", err)
     })
     .push("origin", "main", {}, (err) => {
       if (err) {
-        console.error("PUSH", err)
+        console.error("PUSH ERROR", err)
       } else {
         console.log("Successfully pushed to github")
       }

@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: create env file
+      - name: Create .env file
         run: |
           touch .env
           echo NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} >> .env

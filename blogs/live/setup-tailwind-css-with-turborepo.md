@@ -126,22 +126,8 @@ module.exports = withTM({
 
 That’s it! You are now ready to use Tailwind CSS with Turborepo!
 
-If you found this blog helpful then do share it with others!
-
 ### References
 
 - [Github Repo for this blog](https://github.com/ShubhamVerma1811/turbo-tailwind)
 
 - [Automatic Tailwind CSS Class Sorting](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
-
-### My Socials
-
-- Twitter - [@verma__shubham](https://shbm.fyi/tw)
-
-- GitHub -[ @ShubhamVerma1811](https://shbm.gh)
-
-- LinkedIn - [@ShubhamVerma1811](https://shbm.fyi/li)
-
-- Website - [shubhamverma.me](https://shubhamverma.me)
-
-- Blogs - [https://shubhamverma.me/blog](https://shubhamverma.me/blog)

@@ -51,7 +51,6 @@ Here is the file structure:
 |       `-- fancy
 |           `-- index.hbs
 |-- tailwind.config.js
-|-- tree.txt
 |-- vercel.json
 `-- yarn.lock
 ```

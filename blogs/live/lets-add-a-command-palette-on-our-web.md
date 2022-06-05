@@ -1,7 +1,7 @@
 
 Before you start, let’s see what we are going to build.
 
-Try it out – press `cmd`+`k` (macOS) or `ctrl`+`k` (Linux/Windows), or click the header above.
+Try it out – press `cmd`+`k` (macOS) or `ctrl`+`k` (Linux/Windows), or click the CMD icon in the header above.
 
 Awesome! Now let’s start.
 
@@ -214,7 +214,7 @@ export default function App() {
 
 That's it! Now you can toggle KBar by pressing `Cmd` + `K` on macOS
 
-or `Ctrl`+`K` on Windows/Linux. And also by clicking the button.
+or `Ctrl`+`K` on Windows/Linux. And also by clicking the CMD icon button.
 
 ---
 
@@ -223,7 +223,3 @@ or `Ctrl`+`K` on Windows/Linux. And also by clicking the button.
 - Twitter - [@verma\_\_shubham](https://shbm.fyi/tw)
 
 - GitHub - [ShubhamVerma1811](https://github.com/ShubhamVerma1811)
-
-- Website - [shubhamverma.me](https://shubhamverma.me/)
-
-- Blogs - [shubhamverma.me/blog](https://shubhamverma.me/blog)

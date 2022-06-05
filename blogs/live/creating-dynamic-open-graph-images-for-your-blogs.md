@@ -238,7 +238,3 @@ You can try it out by going to [https://og.shubhamverma.me/?title=Hey there](htt
 I have Open Sourced the code for this project on Github.
 
 Here is the Repo link - https://github.com/ShubhamVerma1811/open-graph-api
-
----
-
-If you found this blog helpful, then do share it with your friends.

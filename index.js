@@ -70,13 +70,25 @@ const handleGitOps = async () => {
       "25576658+ShubhamVerma1811@users.noreply.github.com"
     )
     .pull("origin", "main", {}, (err) => {
-      console.log("PULL ERROR", err)
+      if (err) {
+        console.log("PULL ERROR", err)
+      } else {
+        console.log("PULL SUCCESS")
+      }
     })
     .add("./blogs/", (err) => {
-      console.log("ADD ERROR", err)
+      if (err) {
+        console.log("ADD ERROR", err)
+      } else {
+        console.log("ADD SUCCESS")
+      }
     })
     .commit(`Updated blogs on ${new Date().toLocaleString()}`, (err) => {
-      console.error("COMMIT ERROR", err)
+      if (err) {
+        console.error("COMMIT ERROR", err)
+      } else {
+        console.log("COMMIT SUCCESS")
+      }
     })
     .push("origin", "main", {}, (err) => {
       if (err) {

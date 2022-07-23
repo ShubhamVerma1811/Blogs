@@ -8,7 +8,7 @@
   "dependencies": {
     "@notionhq/client": "^1.0.4",
     "dotenv": "^16.0.1",
-    "notion-to-md": "^2.3.3",
+    "notion-to-md": "^2.5.3",
     "simple-git": "^3.7.1"
   },
   "scripts": {

@@ -73,6 +73,13 @@ form-data@^3.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
+markdown-table@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-table/-/markdown-table-2.0.0.tgz#194a90ced26d31fe753d8b9434430214c011865b"
+  integrity sha512-Ezda85ToJUBhM6WGaG6veasyym+Tbs3cMAw/ZhOPqXiYsr0jgocBV3j3nx+4lk47plLlIqjwuTm/ywVI+zjJ/A==
+  dependencies:
+    repeat-string "^1.0.0"
+
 mime-db@1.52.0:
   version "1.52.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.52.0.tgz#bbabcdc02859f4987301c856e3387ce5ec43bf70"
@@ -97,15 +104,22 @@ node-fetch@^2.6.1:
   dependencies:
     whatwg-url "^5.0.0"
 
-notion-to-md@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/notion-to-md/-/notion-to-md-2.3.3.tgz#af289b4969a077db043b26d43dac4768888c61f8"
-  integrity sha512-m+zeJUaJaQvOuykPva2k+qnaiGM/9suvBB7O3yvZZg0iCEFkqs6X/dFwdYNLAi/SQ8FlREYR6VVVK+cfFmomRw==
+notion-to-md@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/notion-to-md/-/notion-to-md-2.5.3.tgz#9cb41156e8bf99197c7291950ca9d63a39e63bce"
+  integrity sha512-M3K8HazamqwJ/kmBMvtaGm9TL/SENQG1b3wXraUFYBJ5ipQUrWBuJEyToiqPLs8TNA0OHH8IzgFxwnBNrd7pwQ==
+  dependencies:
+    markdown-table "^2.0.0"
 
 prettier@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.2.tgz#e26d71a18a74c3d0f0597f55f01fb6c06c206032"
   integrity sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==
+
+repeat-string@^1.0.0:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
+  integrity sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==
 
 simple-git@^3.7.1:
   version "3.7.1"

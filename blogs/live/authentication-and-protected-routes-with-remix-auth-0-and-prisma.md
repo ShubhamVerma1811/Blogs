@@ -1,29 +1,40 @@
 
-![Twitter screenshot of me crying over how I managed to get it to work.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96b10d7d-5b49-4aab-8be8-79051638acc8/flexeetclub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220723T012617Z&X-Amz-Expires=3600&X-Amz-Signature=8fa86cd0d6fd520bb34858bd3f2f005024e525971d896707cc3c0cc31c2a968a&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Twitter screenshot of me crying over how I managed to get it to work.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96b10d7d-5b49-4aab-8be8-79051638acc8/flexeetclub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220724%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220724T014640Z&X-Amz-Expires=3600&X-Amz-Signature=0ae4cef262961764d3c6151d7cbe6fc09675e8387cc8ea2aabc201afe6c31f29&X-Amz-SignedHeaders=host&x-id=GetObject)
+
 
 > This blog is not meant to be a tutorial for Remix, Prisma or Auth0. It is only meant to show how to setup a simple authentication system using them.
 
+
 ---
+
 
 ## Getting Started
 
+
 For the curious ones, here’s the direct Repo link: https://github.com/ShubhamVerma1811/remix-prisma-auth0-starter
+
 
 Or you can start off by installing these dependencies in the **existing Remix project.**.
 
+
 I chose Vercel as the hosting platform while creating the project so you might see some file differences and remix config differences. But those should not matter.
+
 
 ```bash
 yarn add @prisma/client remix-auth remix-auth-auth0
 ```
 
+
 ```bash
 yarn add -D prisma ts-node typescript
 ```
 
+
 ---
 
+
 ## Project structure
+
 
 ```plain text
 .
@@ -59,15 +70,21 @@ yarn add -D prisma ts-node typescript
 `-- yarn.lock
 ```
 
+
 ---
+
 
 ## Integration
 
+
 ### Setup Prisma
+
 
 You can directly follow the steps for this written in the Remix docs for Prisma
 
+
 > https://remix.run/docs/en/v1/tutorials/jokes#connect-to-the-database
+
 
 ```typescript
 // app/utils/db.server.ts
@@ -94,11 +111,15 @@ if (process.env.NODE_ENV === 'production') {
 export { db };
 ```
 
+
 ### Creating session in Remix
+
 
 So we can store the user’s session in the cookies
 
+
 > More info on sessions in the Remix docs. https://remix.run/docs/en/v1/api/remix#using-sessions
+
 
 ```typescript
 // app/services/session.server.ts
@@ -120,18 +141,14 @@ export let sessionStorage = createCookieSessionStorage({
 export let { getSession, commitSession, destroySession } = sessionStorage;
 ```
 
+
 ### Creating the authenticator client that uses Auth0 strategy.
 
 - In this file, you’ll be setting up the Auth0 strategy using remix-auth. You’ll be needing callback URL, client ID, client secret and tenant ID of your application.
-
 - Here were are creating a new instance of the Authenticator from remix-auth.
-
 - And creating Auth0 strategy config to the authenticator.
-
 - The 2nd argument of the strategy takes a callback that would return you the Auth0 profile after successful login.
-
 - We take that profile data and make an `upsert` operation using Prisma.
-
 - `upsert` would either create a new user in the DB or return as the user that already exists.
 
 ```typescript
@@ -172,11 +189,15 @@ let auth0Strategy = new Auth0Strategy(
 authenticator.use(auth0Strategy);
 ```
 
+
 ---
+
 
 ### Routing
 
+
 ### Create auth0 route.
+
 
 ```typescript
 // app/routes/app/auth0/auth0.tsx
@@ -193,7 +214,9 @@ export const action: ActionFunction = ({ request }) => {
 };
 ```
 
+
 ### Creating callback route
+
 
 ```typescript
 // app/routes/app/auth0/callback.tsx
@@ -213,7 +236,9 @@ export const loader: LoaderFunction = ({ request }) => {
 };
 ```
 
+
 ### Creating login route
+
 
 ```typescript
 import type { LoaderFunction } from '@remix-run/node';
@@ -238,7 +263,9 @@ export default function Login() {
 }
 ```
 
+
 ### Creating the logout route
+
 
 ```typescript
 // app/routes/app/auth0/logout.tsx
@@ -253,13 +280,18 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 ```
 
+
 ---
+
 
 ## Protecting routes using our Authenticator.
 
+
 We are now ready for our routes to be protected.You can simple add the authenticator to the route’s loader.
 
+
 For example, If you want to protect the route `/`, you can do the following:
+
 
 ```typescript
 
@@ -285,16 +317,16 @@ export default function Index() {
 
 ```
 
+
 That’s it! You have now added Authentication and Protected routes for your application using Remix + Prisma + Auth0.
 
+
 ---
+
 
 ## References:
 
 - [Starter Template for this blog](https://github.com/ShubhamVerma1811/remix-prisma-auth0-starter)
-
 - [Remix-Auth](https://github.com/sergiodxa/remix-auth/)
-
 - [Remix-Auth-Auth0](https://github.com/danestves/remix-auth-auth0)
-
 - [Prisma Upsert](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert)

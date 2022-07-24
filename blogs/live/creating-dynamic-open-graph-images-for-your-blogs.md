@@ -1,43 +1,48 @@
 
 If you are into writing articles or into SEO stuff, you might know about the meta tags.
 
+
 One of them is the Open Graph meta tag. It is used to display a thumbnail of the article sites like Twitter, Discord and many more.
+
 
 ```html
 <meta property="og:image" content="http://example.com/image.jpg" />
 ```
 
+
 We’ll need to handle the following:
 
 - Styling
-
 - Font family
-
 - Responsiveness
 
 There are many image manipulation libraries like [Jimp](https://github.com/oliver-moran/jimp) or [Sharp](https://github.com/lovell/sharp/), but they can’t handle the above points.
 
+
 You know what can handle it? It’s HTML!
 
+
 So we will be using Puppeteer that would spin up a headless browser and take a screenshot of the html page.
+
 
 We will be using the following libraries:
 
 - Express - For spinning up the server
-
 - Puppeteer - For spinning up the browser
-
 - Handlerbars - For rendering the html
-
 - Tailwind CSS - For styling the html
 
 And all this would be deployed on Vercel. This way we could use the Serverless Functions.
 
+
 Let’s get started.
+
 
 Here is the file structure:
 
+
 ## File Structure
+
 
 ```plain text
 .
@@ -55,17 +60,24 @@ Here is the file structure:
 `-- yarn.lock
 ```
 
+
 ---
+
 
 ## Creating the HTML/HBS Template
 
+
 The HTML code could be anything, that’s up to you. For sake of this blog, we are using a simple template.
+
 
 I am using Tailwind CDN for styling. [Utility Classes FTW!](https://frontstuff.io/no-utility-classes-arent-the-same-as-inline-styles)
 
+
 ### Head of the HTML
 
+
 We are importing fonts, and using TailwindCSS CDN for styling.
+
 
 ```html
 <!-- templates/basic/index.hbs -->
@@ -85,9 +97,12 @@ We are importing fonts, and using TailwindCSS CDN for styling.
 </html>
 ```
 
+
 ### Body of the HTML
 
+
 Nothing much here apart from Tailwind CSS classes, just a title and date that handlebars would dynamically update.
+
 
 ```html
 <!-- templates/basic/index.hbs -->
@@ -109,11 +124,15 @@ Nothing much here apart from Tailwind CSS classes, just a title and date that ha
 </body>
 ```
 
+
 ---
+
 
 ## Creating the Server and the Handlerbars Template.
 
+
 ### Imports
+
 
 ```typescript
 // api/index.ts
@@ -126,29 +145,28 @@ import path from 'path';
 const app = express();
 ```
 
+
 ### Creating the get Route
+
 
 **Overview of the get route:**
 
-- We spin up the puppeteer browser.
-
-- Get the title and date from the query string.
-
-- Compile the hbs template and pass in the title and date.
-
-- Render the html.
-
-- Take a screenshot of the html.
-
-- Close the browser.
-
-- Return the screenshot as a response.
+1. We spin up the puppeteer browser.
+2. Get the title and date from the query string.
+3. Compile the hbs template and pass in the title and date.
+4. Render the html.
+5. Take a screenshot of the html.
+6. Close the browser.
+7. Return the screenshot as a response.
 
 In the very end we are adding this line
 
+
 > module.exports = app;
 
+
 > This is for Vercel to deploy a serverless function.
+
 
 ```typescript
 app.get('/', async (req: Request, res: Response) => {
@@ -206,11 +224,15 @@ app.get('/', async (req: Request, res: Response) => {
 module.exports = app;
 ```
 
+
 ---
+
 
 ## Deploying on Vercel
 
+
 Create a vercel.json and add the following:
+
 
 ```json
 // vercel.json
@@ -225,16 +247,24 @@ Create a vercel.json and add the following:
 }
 ```
 
+
 All set! You can now deploy the server on Vercel.
+
 
 You can try it out by going to [https://og.shubhamverma.me/?title=Hey there](https://og.shubhamverma.me/?title=Hey)  .It will take time to load up, because first it’s serverless and second we are spinning up puppeteer.
 
+
 > Please don’t over do it. I’ve got Vercel Serverless Limits 😅
+
 
 ---
 
+
 ## References:
+
 
 I have Open Sourced the code for this project on Github.
 
+
 Here is the Repo link - https://github.com/ShubhamVerma1811/open-graph-api
+

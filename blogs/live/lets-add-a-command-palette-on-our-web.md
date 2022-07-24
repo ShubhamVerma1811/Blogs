@@ -1,19 +1,27 @@
 
 Before you start, let’s see what we are going to build.
 
+
 Try it out – press `cmd`+`k` (macOS) or `ctrl`+`k` (Linux/Windows), or click the CMD icon in the header above.
+
 
 Awesome! Now let’s start.
 
+
 All the code used in this blog is available on this CodeSandbox Link. [CSB LINK](https://codesandbox.io/s/lucid-satoshi-4k109k?file=%2Fsrc%2Findex.js%3A295-915)
+
 
 We will be using a library called [KBar](https://github.com/timc1/kbar)
 
+
 ---
+
 
 ## Adding Provider and actions
 
+
 In your root file, wrap the App with a KbarProvider and pass it the default `actions` prop
+
 
 ```typescript
 // index.js
@@ -45,13 +53,18 @@ return (
 );
 ```
 
+
 Now if you press the shortcut, you will see that nothing happens. This is because we haven’t added the other utilities that Kbar provides.
+
 
 ---
 
+
 ## Adding KBar utilities
 
+
 Let’s add the below code.
+
 
 ```typescript
 // index.js
@@ -84,16 +97,17 @@ return (
 );
 ```
 
+
 Now we are able to see a search box when you press the shortcut! But you’ll notice nothing happens when we search.
 
+
 Why are our default `actions` not rendered?
+
 
 ### Adding the KBarResults
 
 - Create a component called `Results`.
-
 - The `useMatches()` hooks returns us the results of the searched query.
-
 - We will use the `KBarResults` component to render the results.
 
 ```typescript
@@ -139,9 +153,12 @@ const Results = () => {
 // ...
 ```
 
+
 ---
 
+
 ## Adding nested Results
+
 
 If you open up Kbar on this website, you will see a “Search Blogs” item which opens up nested results. Let’s see how its done.
 
@@ -184,11 +201,15 @@ const actions = [
 ];
 ```
 
+
 ---
+
 
 ## Toggling KBar using the useKar hook
 
+
 In our App.js file, we will use the `useKBar()` hook to toggle KBar.
+
 
 ```typescript
 
@@ -212,14 +233,17 @@ export default function App() {
 }
 ```
 
+
 That's it! Now you can toggle KBar by pressing `Cmd` + `K` on macOS
+
 
 or `Ctrl`+`K` on Windows/Linux. And also by clicking the CMD icon button.
 
+
 ---
+
 
 ## My Socials
 
 - Twitter - [@verma\_\_shubham](https://shbm.fyi/tw)
-
 - GitHub - [ShubhamVerma1811](https://github.com/ShubhamVerma1811)

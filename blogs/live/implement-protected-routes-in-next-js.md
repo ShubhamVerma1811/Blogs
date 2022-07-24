@@ -1,15 +1,21 @@
 
 Protecting Routes from unauthenticated users is a crucial part of any app.
 
+
 In this blog, I’ll show you exactly how to do that with your NextJS pages using Higher-Order Components 1
+
 
 There can be several ways of authenticating a user like using cookies or JWT tokens.2
 
+
 I’ll be using JWT token as an example, where the `accessToken` is stored in the `localStorage`
+
 
 Let’s consider a page “/dashboard”. This page should be only accessed by authenticated users
 
+
 ### In our `Dashboard.jsx`
+
 
 ```typescript
 // pages/dashboard.jsx
@@ -26,19 +32,23 @@ const Dashboard = ({ user }) => {
 export default withAuth(Dashboard);
 ```
 
+
 Notice that we are importing `withAuth.jsx` and exporting the page by passing it as an argument. That is all we need to do for our pages.
+
 
 ---
 
+
 ### In our `withAuth.jsx`
+
 
 I’ll show you two methods of implementations:
 
 - Method 1: We don’t verify the token
-
 - Method 2: We verify the token
 
 ### Method 1: (We don’t verify the token)
+
 
 ```typescript
 // HOC/withAuth.jsx
@@ -70,9 +80,12 @@ const withAuth = (WrappedComponent) => {
 export default withAuth;
 ```
 
+
 ---
 
+
 ### Method 2: We need to verify the token.
+
 
 ```typescript
 // HOC/withAuth.jsx
@@ -115,16 +128,20 @@ const withAuth = (WrappedComponent) => {
 export default withAuth;
 ```
 
+
 ---
+
 
 Footers:
 
-- [React Higher-Order Components](https://reactjs.org/docs/higher-order-components.html)
-
-- [User authentication in NodeJS](https://debbie.hashnode.dev/a-beginners-guide-to-user-authentication-and-authorization-with-json-web-tokens-versus-sessions-in-nodejs)
+1. [React Higher-Order Components](https://reactjs.org/docs/higher-order-components.html)
+2. [User authentication in NodeJS](https://debbie.hashnode.dev/a-beginners-guide-to-user-authentication-and-authorization-with-json-web-tokens-versus-sessions-in-nodejs)
 
 ---
 
+
 Wasn’t that easy!
 
+
 I hope this blog helped you. If you got any queries or feedback then let me know 😀
+

@@ -1,6 +1,7 @@
 
 In this short blog, I’ll show you how you can write Markdown in NextJS using MDX.
 
+
 ## Installation
 
 - Before getting starting, I assume you have already initialized a NextJS project.
@@ -9,13 +10,17 @@ In this short blog, I’ll show you how you can write Markdown in NextJS using M
 yarn add @next/mdx @mdx-js/loader
 ```
 
+
 OR
+
 
 ```shell
 npm install --save @next/mdx @mdx-js/loader
 ```
 
+
 ---
+
 
 ## Configuration
 
@@ -31,11 +36,15 @@ module.exports = withMDX({
 });
 ```
 
+
 ---
+
 
 ## Usage
 
+
 Now we can create a `index.mdx` file in our `src`
+
 
 ```typescript
 <!-- src/pages/index.mdx -->
@@ -63,24 +72,30 @@ export const Home = () => {
 ## I can continue to write Markdown here
 ```
 
+
 ---
+
 
 ## Output
 
+
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1624967131224/2GinYtCFs.gif?auto=compress)
 
+
 ---
+
 
 ## References
 
 - [NextJS PageExtensions](https://nextjs.org/docs/api-reference/next.config.js/custom-page-extensions)
-
 - [MDXJS](https://mdxjs.com/)
-
 - [MDX and NextJS](https://mdxjs.com/getting-started/next)
 
 ---
 
+
 ## Socials
 
+
 ### If you like my content then do follow me on Twitter [Shubham Verma](https://shbm.fyi/tw)
+

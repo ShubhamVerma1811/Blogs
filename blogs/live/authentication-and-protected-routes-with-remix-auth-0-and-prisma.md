@@ -1,5 +1,5 @@
 
-![Twitter screenshot of me crying over how I managed to get it to work.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96b10d7d-5b49-4aab-8be8-79051638acc8/flexeetclub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220724%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220724T014640Z&X-Amz-Expires=3600&X-Amz-Signature=0ae4cef262961764d3c6151d7cbe6fc09675e8387cc8ea2aabc201afe6c31f29&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Twitter screenshot of me crying over how I managed to get it to work.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96b10d7d-5b49-4aab-8be8-79051638acc8/flexeetclub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220725%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220725T012653Z&X-Amz-Expires=3600&X-Amz-Signature=9cf45c8adb94d92b8e95cb57933a251583f8ae947ffd34c91adada9277788dcb&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 > This blog is not meant to be a tutorial for Remix, Prisma or Auth0. It is only meant to show how to setup a simple authentication system using them.

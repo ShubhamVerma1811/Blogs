@@ -2,6 +2,7 @@ import { Client } from "@notionhq/client"
 import { config } from "dotenv"
 import * as fs from "fs"
 import { NotionToMarkdown } from "notion-to-md"
+import prettier from "prettier"
 import simpleGit from "simple-git"
 
 config()
@@ -51,13 +52,34 @@ async function writeBlogsToFolder(blogs) {
   }
   fs.mkdirSync(blogFolder)
 
+  const prettierConfig = await prettier.resolveConfig("./.prettierrc")
+
   for (const blog of blogs) {
     const title = blog?.properties?.slug?.rich_text[0]?.plain_text
     console.log(`Writing blog ${title}...`)
     const mdblocks = await n2M.pageToMarkdown(blog.id)
     const mdString = n2M.toMarkdownString(mdblocks)
     const fileName = `${blogFolder}/${title}.md`
-    fs.writeFileSync(fileName, mdString)
+    const mdData = `
+---
+id: '${blog.id}'
+title: ${blog?.properties?.name?.title?.[0].plain_text || "No title"}
+slug: ${blog?.properties?.slug?.rich_text[0]?.plain_text || "/404"}
+summary: ${blog?.properties?.subtitle?.rich_text[0]?.plain_text ?? null}
+publishedAt: ${blog?.properties?.published?.date?.start ?? null}
+coverImage: ${blog?.properties?.thumbnail?.files[0]?.file?.url ?? null}
+canonicalUrl: ${blog?.properties?.canonicalUrl?.url?.trim() ?? null}
+publicationUrl: ${blog?.properties?.publicationUrl?.url?.trim() ?? null}
+---
+${mdString}
+`
+
+    const formattedMdData = prettier.format(mdData, {
+      ...prettierConfig,
+      parser: "markdown"
+    })
+
+    fs.writeFileSync(fileName, formattedMdData)
   }
 }
 

@@ -1,50 +1,53 @@
+---
+id: '4140d640-b644-498e-a87a-0b4a023f1669'
+title: Write Markdown In NextJS
+slug: write-markdown-in-next-js
+summary: MDX is awesome!
+publishedAt: 2021-06-29
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ab477d24-5745-4343-856e-60aaff3fae43/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T030344Z&X-Amz-Expires=3600&X-Amz-Signature=430fb1451fa9911b0bd8f59c4143a19d269a7e975d4c414a58f3fd231a4246c5&X-Amz-SignedHeaders=host&x-id=GetObject
+canonicalUrl: null
+publicationUrl: null
+---
 
-In this short blog, I’ll show you how you can write Markdown in NextJS using MDX.
-
+In this short blog, I’ll show you how you can write Markdown in NextJS using
+MDX.
 
 ## Installation
 
-- Before getting starting, I assume you have already initialized a NextJS project.
+- Before getting starting, I assume you have already initialized a NextJS
+  project.
 
 ```shell
 yarn add @next/mdx @mdx-js/loader
 ```
 
-
 OR
-
 
 ```shell
 npm install --save @next/mdx @mdx-js/loader
 ```
 
-
 ---
-
 
 ## Configuration
 
 - In our `next.config.js`, add the following
 
 ```javascript
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx$/,
-});
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx$/
+})
 
 module.exports = withMDX({
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-});
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
+})
 ```
-
 
 ---
 
-
 ## Usage
 
-
 Now we can create a `index.mdx` file in our `src`
-
 
 ```typescript
 <!-- src/pages/index.mdx -->
@@ -72,18 +75,13 @@ export const Home = () => {
 ## I can continue to write Markdown here
 ```
 
-
 ---
-
 
 ## Output
 
-
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1624967131224/2GinYtCFs.gif?auto=compress)
 
-
 ---
-
 
 ## References
 
@@ -93,9 +91,6 @@ export const Home = () => {
 
 ---
 
-
 ## Socials
 
-
 ### If you like my content then do follow me on Twitter [Shubham Verma](https://shbm.fyi/tw)
-

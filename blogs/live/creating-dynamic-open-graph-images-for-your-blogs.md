@@ -1,14 +1,23 @@
+---
+id: '96e3a30a-e278-4e6e-afbe-75207b4810f4'
+title: Creating Dynamic Open Graph images for your blogs!
+slug: creating-dynamic-open-graph-images-for-your-blogs
+summary: Automate that shit of creating the images!
+publishedAt: 2022-05-11
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6b7f146e-741b-4bd2-bc0e-831c97c6b1eb/localhost.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T030344Z&X-Amz-Expires=3600&X-Amz-Signature=507f746d071ef909e8ee0ac80fe3e446b52a17ef9cf81899d32b570eecf78d20&X-Amz-SignedHeaders=host&x-id=GetObject
+canonicalUrl: null
+publicationUrl: null
+---
 
-If you are into writing articles or into SEO stuff, you might know about the meta tags.
+If you are into writing articles or into SEO stuff, you might know about the
+meta tags.
 
-
-One of them is the Open Graph meta tag. It is used to display a thumbnail of the article sites like Twitter, Discord and many more.
-
+One of them is the Open Graph meta tag. It is used to display a thumbnail of the
+article sites like Twitter, Discord and many more.
 
 ```html
 <meta property="og:image" content="http://example.com/image.jpg" />
 ```
-
 
 We’ll need to handle the following:
 
@@ -16,14 +25,15 @@ We’ll need to handle the following:
 - Font family
 - Responsiveness
 
-There are many image manipulation libraries like [Jimp](https://github.com/oliver-moran/jimp) or [Sharp](https://github.com/lovell/sharp/), but they can’t handle the above points.
-
+There are many image manipulation libraries like
+[Jimp](https://github.com/oliver-moran/jimp) or
+[Sharp](https://github.com/lovell/sharp/), but they can’t handle the above
+points.
 
 You know what can handle it? It’s HTML!
 
-
-So we will be using Puppeteer that would spin up a headless browser and take a screenshot of the html page.
-
+So we will be using Puppeteer that would spin up a headless browser and take a
+screenshot of the html page.
 
 We will be using the following libraries:
 
@@ -32,17 +42,14 @@ We will be using the following libraries:
 - Handlerbars - For rendering the html
 - Tailwind CSS - For styling the html
 
-And all this would be deployed on Vercel. This way we could use the Serverless Functions.
-
+And all this would be deployed on Vercel. This way we could use the Serverless
+Functions.
 
 Let’s get started.
 
-
 Here is the file structure:
 
-
 ## File Structure
-
 
 ```plain text
 .
@@ -60,24 +67,19 @@ Here is the file structure:
 `-- yarn.lock
 ```
 
-
 ---
-
 
 ## Creating the HTML/HBS Template
 
+The HTML code could be anything, that’s up to you. For sake of this blog, we are
+using a simple template.
 
-The HTML code could be anything, that’s up to you. For sake of this blog, we are using a simple template.
-
-
-I am using Tailwind CDN for styling. [Utility Classes FTW!](https://frontstuff.io/no-utility-classes-arent-the-same-as-inline-styles)
-
+I am using Tailwind CDN for styling.
+[Utility Classes FTW!](https://frontstuff.io/no-utility-classes-arent-the-same-as-inline-styles)
 
 ### Head of the HTML
 
-
 We are importing fonts, and using TailwindCSS CDN for styling.
-
 
 ```html
 <!-- templates/basic/index.hbs -->
@@ -90,28 +92,31 @@ We are importing fonts, and using TailwindCSS CDN for styling.
     <title>{{title}}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
   </head>
   <!-- body ... -->
 </html>
 ```
 
-
 ### Body of the HTML
 
-
-Nothing much here apart from Tailwind CSS classes, just a title and date that handlebars would dynamically update.
-
+Nothing much here apart from Tailwind CSS classes, just a title and date that
+handlebars would dynamically update.
 
 ```html
 <!-- templates/basic/index.hbs -->
 
 <body
-  class="image relative bg-black font-bold w-[2240px] h-[1260px] p-32 font-[Karla]">
+  class="image relative bg-black font-bold w-[2240px] h-[1260px] p-32 font-[Karla]"
+>
   <h1 class="text-gray-300 text-4xl">SV.</h1>
   <h1
-    class="text-white my-32 py-2 leading-[80px] text-6xl line-clamp-3 font-medium">
+    class="text-white my-32 py-2 leading-[80px] text-6xl line-clamp-3 font-medium"
+  >
     {{title}}
   </h1>
   <h1 class="text-white font-normal my-32 text-3xl line-clamp-3">
@@ -124,30 +129,24 @@ Nothing much here apart from Tailwind CSS classes, just a title and date that ha
 </body>
 ```
 
-
 ---
-
 
 ## Creating the Server and the Handlerbars Template.
 
-
 ### Imports
-
 
 ```typescript
 // api/index.ts
-import chromium from 'chrome-aws-lambda'; // required for deploying on Vercel
-import express, { Request, Response } from 'express';
-import { readFileSync } from 'fs';
-import Handlebars from 'handlebars';
-import path from 'path';
+import chromium from 'chrome-aws-lambda' // required for deploying on Vercel
+import express, { Request, Response } from 'express'
+import { readFileSync } from 'fs'
+import Handlebars from 'handlebars'
+import path from 'path'
 
-const app = express();
+const app = express()
 ```
 
-
 ### Creating the get Route
-
 
 **Overview of the get route:**
 
@@ -161,12 +160,9 @@ const app = express();
 
 In the very end we are adding this line
 
-
 > module.exports = app;
 
-
 > This is for Vercel to deploy a serverless function.
-
 
 ```typescript
 app.get('/', async (req: Request, res: Response) => {
@@ -178,18 +174,18 @@ app.get('/', async (req: Request, res: Response) => {
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath,
       headless: true,
-      ignoreHTTPSErrors: true,
-    });
+      ignoreHTTPSErrors: true
+    })
     // const browser = await chromium.puppeteer.launch()
-    const [page] = await browser.pages();
+    const [page] = await browser.pages()
 
-    const { template = 'basic', title, date } = req.query;
+    const { template = 'basic', title, date } = req.query
 
     // Reading the template
     const _template = readFileSync(
       path.join(process.cwd(), `src/templates/${template}/index.hbs`),
       'utf8'
-    );
+    )
 
     // Compiling the template
     const html = Handlebars.compile(_template)({
@@ -200,39 +196,35 @@ app.get('/', async (req: Request, res: Response) => {
         new Date().toLocaleDateString('en-GB', {
           day: 'numeric',
           month: 'long',
-          year: 'numeric',
-        }),
-    });
+          year: 'numeric'
+        })
+    })
 
     // Rendering the html and taking a screenshot
-    await page.setContent(html);
-    const take = await page.$('.image');
-    const ss = await take.screenshot();
-    await browser.close();
+    await page.setContent(html)
+    const take = await page.$('.image')
+    const ss = await take.screenshot()
+    await browser.close()
 
     // Returning the buffer of the screenshot.
-    res.setHeader('Content-Type', 'image/png');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-    res.send(ss);
+    res.setHeader('Content-Type', 'image/png')
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
+    res.send(ss)
   } catch (err) {
-    console.error(err);
-    res.send('Error');
+    console.error(err)
+    res.send('Error')
   }
-});
+})
 
 // Required if you are deplying Express on Vercel as a Serverless Function.
-module.exports = app;
+module.exports = app
 ```
-
 
 ---
 
-
 ## Deploying on Vercel
 
-
 Create a vercel.json and add the following:
-
 
 ```json
 // vercel.json
@@ -247,24 +239,19 @@ Create a vercel.json and add the following:
 }
 ```
 
-
 All set! You can now deploy the server on Vercel.
 
-
-You can try it out by going to [https://og.shubhamverma.me/?title=Hey there](https://og.shubhamverma.me/?title=Hey)  .It will take time to load up, because first it’s serverless and second we are spinning up puppeteer.
-
+You can try it out by going to
+[https://og.shubhamverma.me/?title=Hey there](https://og.shubhamverma.me/?title=Hey)
+.It will take time to load up, because first it’s serverless and second we are
+spinning up puppeteer.
 
 > Please don’t over do it. I’ve got Vercel Serverless Limits 😅
 
-
 ---
-
 
 ## References:
 
-
 I have Open Sourced the code for this project on Github.
 
-
 Here is the Repo link - https://github.com/ShubhamVerma1811/open-graph-api
-

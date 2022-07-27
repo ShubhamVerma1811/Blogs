@@ -4,12 +4,12 @@ title: Authentication and Protected Routes using Remix + Auth0 + Prisma
 slug: authentication-and-protected-routes-with-remix-auth-0-and-prisma
 summary: null
 publishedAt: 2022-07-12
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/09bde558-8ee4-4d20-a7b8-11a1496e7e1a/Facebook_cover_-_2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T030344Z&X-Amz-Expires=3600&X-Amz-Signature=29b1430f2f9623bbd95d2a6000902990a14ea4e6aa29371a334943319f2e70f3&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/09bde558-8ee4-4d20-a7b8-11a1496e7e1a/Facebook_cover_-_2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014248Z&X-Amz-Expires=3600&X-Amz-Signature=78d24ed85f3054483ed83c8552efbc676f0528bb8e4be809a2d2965461ab484d&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---
 
-![Twitter screenshot of me crying over how I managed to get it to work.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96b10d7d-5b49-4aab-8be8-79051638acc8/flexeetclub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T030345Z&X-Amz-Expires=3600&X-Amz-Signature=173050f7fd4a3d002e0259904c348148034d52f05d3b4d9550557cfac18f009c&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Twitter screenshot of me crying over how I managed to get it to work.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96b10d7d-5b49-4aab-8be8-79051638acc8/flexeetclub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014251Z&X-Amz-Expires=3600&X-Amz-Signature=1bf8dac00e1751c2f194aef4f629e2c553cc7298f7657953913a75151da60445&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 > This blog is not meant to be a tutorial for Remix, Prisma or Auth0. It is only
 > meant to show how to setup a simple authentication system using them.

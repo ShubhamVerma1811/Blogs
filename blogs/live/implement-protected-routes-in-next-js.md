@@ -5,7 +5,7 @@ slug: implement-protected-routes-in-next-js
 summary:
   Protecting Routes from unauthenticated users is a crucial part of any app
 publishedAt: 2021-01-20
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9bba1986-12a5-4ba7-86b7-7653119dee42/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T030344Z&X-Amz-Expires=3600&X-Amz-Signature=b1bd9c7ffcf723b9da01f3a4b2598aca06e43811363133f87d06e14ebd41a292&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9bba1986-12a5-4ba7-86b7-7653119dee42/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014248Z&X-Amz-Expires=3600&X-Amz-Signature=c581e98b988c11dee49a1a537349a8c4fea192c3ab6a44036746ad18fb8fa296&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---

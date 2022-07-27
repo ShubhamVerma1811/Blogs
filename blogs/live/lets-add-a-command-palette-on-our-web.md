@@ -4,7 +4,7 @@ title: Let's add a Command Palette on our website
 slug: lets-add-a-command-palette-on-our-web
 summary: Add a raycast style command palette to your website
 publishedAt: 2022-04-03
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/178b584c-391a-4cc0-b46c-e6d7f304e5d9/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T030344Z&X-Amz-Expires=3600&X-Amz-Signature=954064f60be611277a6332eed70e3f68b27d5d710786a53f2afcd6f992367272&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/178b584c-391a-4cc0-b46c-e6d7f304e5d9/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014248Z&X-Amz-Expires=3600&X-Amz-Signature=e071fbd3703f5381756d96b1b2c491a2a0fd53463fd00671e1f94b4203055825&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---

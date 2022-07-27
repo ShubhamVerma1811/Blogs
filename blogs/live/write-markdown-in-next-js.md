@@ -4,7 +4,7 @@ title: Write Markdown In NextJS
 slug: write-markdown-in-next-js
 summary: MDX is awesome!
 publishedAt: 2021-06-29
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ab477d24-5745-4343-856e-60aaff3fae43/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T030344Z&X-Amz-Expires=3600&X-Amz-Signature=430fb1451fa9911b0bd8f59c4143a19d269a7e975d4c414a58f3fd231a4246c5&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ab477d24-5745-4343-856e-60aaff3fae43/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014248Z&X-Amz-Expires=3600&X-Amz-Signature=25487620d91c582a352ca147c74aa8ba0c445c8dd7b33fc2bd010562565055fb&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---

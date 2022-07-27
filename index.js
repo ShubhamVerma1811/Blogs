@@ -76,6 +76,7 @@ ${mdString}
 
     const formattedMdData = prettier.format(mdData, {
       ...prettierConfig,
+      semi: true,
       parser: 'markdown'
     })
 

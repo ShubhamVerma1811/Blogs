@@ -4,7 +4,7 @@ title: Creating Dynamic Open Graph images for your blogs!
 slug: creating-dynamic-open-graph-images-for-your-blogs
 summary: Automate that shit of creating the images!
 publishedAt: 2022-05-11
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6b7f146e-741b-4bd2-bc0e-831c97c6b1eb/localhost.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014248Z&X-Amz-Expires=3600&X-Amz-Signature=eeda3f13330803a7973724dbeb0b7aa8ff758dab448a987b3a9338318d48fc02&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6b7f146e-741b-4bd2-bc0e-831c97c6b1eb/localhost.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220728T012723Z&X-Amz-Expires=3600&X-Amz-Signature=d15d4e9179e00ebce6092ddc2027222613be318509094e5e02849a9f1f9b74d0&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---
@@ -137,13 +137,13 @@ handlebars would dynamically update.
 
 ```typescript
 // api/index.ts
-import chromium from 'chrome-aws-lambda' // required for deploying on Vercel
-import express, { Request, Response } from 'express'
-import { readFileSync } from 'fs'
-import Handlebars from 'handlebars'
-import path from 'path'
+import chromium from 'chrome-aws-lambda'; // required for deploying on Vercel
+import express, { Request, Response } from 'express';
+import { readFileSync } from 'fs';
+import Handlebars from 'handlebars';
+import path from 'path';
 
-const app = express()
+const app = express();
 ```
 
 ### Creating the get Route
@@ -175,17 +175,17 @@ app.get('/', async (req: Request, res: Response) => {
       executablePath: await chromium.executablePath,
       headless: true,
       ignoreHTTPSErrors: true
-    })
+    });
     // const browser = await chromium.puppeteer.launch()
-    const [page] = await browser.pages()
+    const [page] = await browser.pages();
 
-    const { template = 'basic', title, date } = req.query
+    const { template = 'basic', title, date } = req.query;
 
     // Reading the template
     const _template = readFileSync(
       path.join(process.cwd(), `src/templates/${template}/index.hbs`),
       'utf8'
-    )
+    );
 
     // Compiling the template
     const html = Handlebars.compile(_template)({
@@ -198,26 +198,26 @@ app.get('/', async (req: Request, res: Response) => {
           month: 'long',
           year: 'numeric'
         })
-    })
+    });
 
     // Rendering the html and taking a screenshot
-    await page.setContent(html)
-    const take = await page.$('.image')
-    const ss = await take.screenshot()
-    await browser.close()
+    await page.setContent(html);
+    const take = await page.$('.image');
+    const ss = await take.screenshot();
+    await browser.close();
 
     // Returning the buffer of the screenshot.
-    res.setHeader('Content-Type', 'image/png')
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
-    res.send(ss)
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    res.send(ss);
   } catch (err) {
-    console.error(err)
-    res.send('Error')
+    console.error(err);
+    res.send('Error');
   }
-})
+});
 
 // Required if you are deplying Express on Vercel as a Serverless Function.
-module.exports = app
+module.exports = app;
 ```
 
 ---

@@ -5,7 +5,7 @@ slug: implement-protected-routes-in-next-js
 summary:
   Protecting Routes from unauthenticated users is a crucial part of any app
 publishedAt: 2021-01-20
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9bba1986-12a5-4ba7-86b7-7653119dee42/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014248Z&X-Amz-Expires=3600&X-Amz-Signature=c581e98b988c11dee49a1a537349a8c4fea192c3ab6a44036746ad18fb8fa296&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9bba1986-12a5-4ba7-86b7-7653119dee42/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220728T012723Z&X-Amz-Expires=3600&X-Amz-Signature=065b662ecb493362e050f2838981de3ed0150a304cec5215f1e2bc04f49bd5b3&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---
@@ -28,17 +28,17 @@ authenticated users
 
 ```typescript
 // pages/dashboard.jsx
-import withAuth from 'HOC/withAuth.js'
+import withAuth from 'HOC/withAuth.js';
 const Dashboard = ({ user }) => {
   return (
     <div>
       <h1>Dashboard</h1>
       <h2>{user.name}</h2>
     </div>
-  )
-}
+  );
+};
 
-export default withAuth(Dashboard)
+export default withAuth(Dashboard);
 ```
 
 Notice that we are importing `withAuth.jsx` and exporting the page by passing it
@@ -57,32 +57,32 @@ I’ll show you two methods of implementations:
 
 ```typescript
 // HOC/withAuth.jsx
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 const withAuth = (WrappedComponent) => {
   return (props) => {
     // checks whether we are on client / browser or server.
     if (typeof window !== 'undefined') {
-      const Router = useRouter()
+      const Router = useRouter();
 
-      const accessToken = localStorage.getItem('accessToken')
+      const accessToken = localStorage.getItem('accessToken');
 
       // If there is no access token we redirect to "/" page.
       if (!accessToken) {
-        Router.replace('/')
-        return null
+        Router.replace('/');
+        return null;
       }
 
       // If this is an accessToken we just render the component that was passed with all its props
 
-      return <WrappedComponent {...props} />
+      return <WrappedComponent {...props} />;
     }
 
     // If we are on server, return null
-    return null
-  }
-}
+    return null;
+  };
+};
 
-export default withAuth
+export default withAuth;
 ```
 
 ---
@@ -91,43 +91,43 @@ export default withAuth
 
 ```typescript
 // HOC/withAuth.jsx
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import verifyToken from 'services/verifyToken'
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import verifyToken from 'services/verifyToken';
 
 const withAuth = (WrappedComponent) => {
   return (props) => {
-    const Router = useRouter()
-    const [verified, setVerified] = useState(false)
+    const Router = useRouter();
+    const [verified, setVerified] = useState(false);
 
     useEffect(async () => {
-      const accessToken = localStorage.getItem('accessToken')
+      const accessToken = localStorage.getItem('accessToken');
       // if no accessToken was found,then we redirect to "/" page.
       if (!accessToken) {
-        Router.replace('/')
+        Router.replace('/');
       } else {
         // we call the api that verifies the token.
-        const data = await verifyToken(accessToken)
+        const data = await verifyToken(accessToken);
         // if token was verified we set the state.
         if (data.verified) {
-          setVerified(data.verified)
+          setVerified(data.verified);
         } else {
           // If the token was fraud we first remove it from localStorage and then redirect to "/"
-          localStorage.removeItem('accessToken')
-          Router.replace('/')
+          localStorage.removeItem('accessToken');
+          Router.replace('/');
         }
       }
-    }, [])
+    }, []);
 
     if (verified) {
-      return <WrappedComponent {...props} />
+      return <WrappedComponent {...props} />;
     } else {
-      return null
+      return null;
     }
-  }
-}
+  };
+};
 
-export default withAuth
+export default withAuth;
 ```
 
 ---

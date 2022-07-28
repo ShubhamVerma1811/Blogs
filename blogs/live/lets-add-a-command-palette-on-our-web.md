@@ -4,7 +4,7 @@ title: Let's add a Command Palette on our website
 slug: lets-add-a-command-palette-on-our-web
 summary: Add a raycast style command palette to your website
 publishedAt: 2022-04-03
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/178b584c-391a-4cc0-b46c-e6d7f304e5d9/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220727T014248Z&X-Amz-Expires=3600&X-Amz-Signature=e071fbd3703f5381756d96b1b2c491a2a0fd53463fd00671e1f94b4203055825&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/178b584c-391a-4cc0-b46c-e6d7f304e5d9/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220728T012723Z&X-Amz-Expires=3600&X-Amz-Signature=36b707160a6611dea2534c46c9126360f3862c3726c7446f32837599105faebb&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---
@@ -31,7 +31,7 @@ In your root file, wrap the App with a KbarProvider and pass it the default
 ```typescript
 // index.js
 
-import { KBarProvider } from 'kbar'
+import { KBarProvider } from 'kbar';
 
 const actions = [
   {
@@ -48,13 +48,13 @@ const actions = [
     keywords: 'twitter',
     perform: () => (window.location.href = 'https://twitter.com/verma__shubham')
   }
-]
+];
 
 return (
   <KBarProvider actions={actions}>
     <App />
   </KBarProvider>
-)
+);
 ```
 
 Now if you press the shortcut, you will see that nothing happens. This is
@@ -76,11 +76,11 @@ import {
   KBarProvider,
   KBarResults,
   KBarSearch
-} from 'kbar'
+} from 'kbar';
 
 const actions = [
   //...
-]
+];
 
 return (
   <KBarProvider actions={actions}>
@@ -93,7 +93,7 @@ return (
     </KBarPortal>
     <App />
   </KBarProvider>
-)
+);
 ```
 
 Now we are able to see a search box when you press the shortcut! But you’ll
@@ -109,7 +109,7 @@ Why are our default `actions` not rendered?
 
 ```typescript
 const Results = () => {
-  const { results } = useMatches()
+  const { results } = useMatches();
   return (
     <KBarResults
       items={results}
@@ -127,16 +127,16 @@ const Results = () => {
           >
             {item.name}
           </p>
-        )
+        );
       }}
     />
-  )
-}
+  );
+};
 
 // USE THE ABOVE COMPONENT right after the KBarSearch />
 
 // ...
-;<KBarProvider>
+<KBarProvider>
   <KBarPortal>
     <KBarPositioner>
       <KBarAnimator>
@@ -147,7 +147,7 @@ const Results = () => {
     </KBarPositioner>
   </KBarPortal>
   <App />
-</KBarProvider>
+</KBarProvider>;
 // ...
 ```
 
@@ -194,7 +194,7 @@ const actions = [
     name: 'Blog 2',
     parent: 'search-blogs'
   }
-]
+];
 ```
 
 ---
@@ -204,24 +204,24 @@ const actions = [
 In our App.js file, we will use the `useKBar()` hook to toggle KBar.
 
 ```typescript
-import { useKBar } from 'kbar'
-import './styles.css'
+import { useKBar } from 'kbar';
+import './styles.css';
 
 export default function App() {
-  const kbar = useKBar()
+  const kbar = useKBar();
 
   return (
     <div className='App'>
       <h1>Hit Ctrl + K or Cmd + K</h1>
       <button
         onClick={() => {
-          kbar.query.toggle()
+          kbar.query.toggle();
         }}
       >
         Toggle Kbar
       </button>
     </div>
-  )
+  );
 }
 ```
 

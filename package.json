@@ -1,14 +1,13 @@
 {
-  "name": "notion-blogs-to-gh",
+  "name": "sanity-blogs-to-gh",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Shubham Verma",
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@notionhq/client": "^1.0.4",
     "dotenv": "^16.0.1",
-    "notion-to-md": "^2.5.3",
+    "node-fetch": "^3.2.9",
     "simple-git": "^3.7.1"
   },
   "scripts": {
@@ -16,6 +15,7 @@
     "format": "prettier --write * --ignore-path .gitignore"
   },
   "devDependencies": {
+    "eslint": "^8.20.0",
     "prettier": "^2.6.2"
   }
 }

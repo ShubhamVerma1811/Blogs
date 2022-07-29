@@ -1,48 +1,19 @@
-import { Client } from '@notionhq/client'
 import { config } from 'dotenv'
 import * as fs from 'fs'
-import { NotionToMarkdown } from 'notion-to-md'
+import fetch from 'node-fetch'
 import prettier from 'prettier'
 import simpleGit from 'simple-git'
 
 config()
 
-const notion = new Client({
-  auth: process.env.NOTION_TOKEN
-})
-
-const n2M = new NotionToMarkdown({
-  notionClient: notion
-})
-
 async function getPosts() {
-  const results = await notion.databases.query({
-    database_id: process.env.NOTION_BLOGS_DATABASE_ID,
-    sorts: [
-      {
-        property: 'published',
-        direction: 'descending'
-      }
-    ],
-    filter: {
-      and: [
-        {
-          property: 'active',
-          checkbox: {
-            equals: true
-          }
-        },
-        {
-          property: 'environment',
-          multi_select: {
-            contains: 'PRODUCTION'
-          }
-        }
-      ]
-    }
-  })
+  const query = `*[_type == "post"] {...,"id":_id,"slug": slug.current}`
+  const encodedQuery = encodeURIComponent(query)
+  const res = await fetch(
+    `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/dev?query=${encodedQuery}`
+  )
 
-  return results
+  return res.json()
 }
 
 async function writeBlogsToFolder(blogs) {
@@ -55,25 +26,22 @@ async function writeBlogsToFolder(blogs) {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc')
 
   for (const blog of blogs) {
-    const title = blog?.properties?.slug?.rich_text[0]?.plain_text
+    const title = blog.slug
     console.log(`Writing blog ${title}...`)
-    const mdblocks = await n2M.pageToMarkdown(blog.id)
-    const mdString = n2M.toMarkdownString(mdblocks)
     const fileName = `${blogFolder}/${title}.md`
     const mdData = `
 ---
 id: '${blog.id}'
-title: ${blog?.properties?.name?.title?.[0].plain_text || 'No title'}
-slug: ${blog?.properties?.slug?.rich_text[0]?.plain_text || '/404'}
-summary: ${blog?.properties?.subtitle?.rich_text[0]?.plain_text ?? null}
-publishedAt: ${blog?.properties?.published?.date?.start ?? null}
-coverImage: ${blog?.properties?.thumbnail?.files[0]?.file?.url ?? null}
-canonicalUrl: ${blog?.properties?.canonicalUrl?.url?.trim() ?? null}
-publicationUrl: ${blog?.properties?.publicationUrl?.url?.trim() ?? null}
+title: ${blog?.title || 'No title'}
+slug: ${blog?.slug || '/404'}
+summary: ${blog?.summary ?? null}
+date: ${blog?.date ?? null}
+coverImage: ${blog?.cover?.asset?._ref ?? null}
+canonicalUrl: ${blog?.canonicalUrl ?? null}
+publicationUrl: ${blog?.publicationUrl ?? null}
 ---
-${mdString}
+${blog?.body}
 `
-
     const formattedMdData = prettier.format(mdData, {
       ...prettierConfig,
       semi: true,
@@ -123,11 +91,15 @@ const handleGitOps = async () => {
 }
 
 const main = async () => {
-  const posts = await getPosts()
-  console.log('Found', posts.results.length, 'posts')
-  console.log('Writing to folder...')
-  await writeBlogsToFolder(posts.results)
-  await handleGitOps()
+  try {
+    const posts = await getPosts()
+    console.log('Found', posts.result.length, 'posts')
+    console.log('Writing to folder...')
+    await writeBlogsToFolder(posts.result)
+    await handleGitOps()
+  } catch (err) {
+    console.error('Whoops! And Error', err)
+  }
 }
 
 main()

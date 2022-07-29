@@ -6,7 +6,7 @@ summary:
   This is a simple extension that shows the symbols and outlines for a React
   file.
 publishedAt: 2021-12-04
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/effe4bf4-8bd9-46c7-80ac-627afa89a09c/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220728T012723Z&X-Amz-Expires=3600&X-Amz-Signature=eab3ab1599f91e64702837588236ae25536788b52abf264f166629387ebb1bc0&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/effe4bf4-8bd9-46c7-80ac-627afa89a09c/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=3c8897907df969ba636f36149b9dc226a9deca69dcfa0c756e6c58fa2813aa62&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---

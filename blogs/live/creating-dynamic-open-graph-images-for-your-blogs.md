@@ -4,7 +4,7 @@ title: Creating Dynamic Open Graph images for your blogs!
 slug: creating-dynamic-open-graph-images-for-your-blogs
 summary: Automate that shit of creating the images!
 publishedAt: 2022-05-11
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6b7f146e-741b-4bd2-bc0e-831c97c6b1eb/localhost.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220728T012723Z&X-Amz-Expires=3600&X-Amz-Signature=d15d4e9179e00ebce6092ddc2027222613be318509094e5e02849a9f1f9b74d0&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6b7f146e-741b-4bd2-bc0e-831c97c6b1eb/localhost.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=9a4fdcad34e2f6ac59a6483720cb0f948fee7fad674aae295005a55487f02512&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---

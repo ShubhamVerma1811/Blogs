@@ -5,7 +5,7 @@ slug: setup-tailwind-css-with-turborepo
 summary:
   In this article, I’ll show you how to setup Tailwind CSS with your Turborepo.
 publishedAt: 2022-02-21
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/20597e0f-9bb7-425c-a3b3-22aa32ba5bbc/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220728T012723Z&X-Amz-Expires=3600&X-Amz-Signature=225fb998b6959a587830eb7ee165a530bcbcb1fc08cf81b793830127d9d65719&X-Amz-SignedHeaders=host&x-id=GetObject
+coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/20597e0f-9bb7-425c-a3b3-22aa32ba5bbc/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=674af68c6086dfa217d8488850b0d52b63e3a54f1779d1cfdbce18025c302c66&X-Amz-SignedHeaders=host&x-id=GetObject
 canonicalUrl: null
 publicationUrl: null
 ---

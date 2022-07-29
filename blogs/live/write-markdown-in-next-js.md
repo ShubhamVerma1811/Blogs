@@ -1,10 +1,10 @@
 ---
-id: '4140d640-b644-498e-a87a-0b4a023f1669'
+id: 'de874dce-fe47-44fa-8fa9-9ec035134fb9'
 title: Write Markdown In NextJS
 slug: write-markdown-in-next-js
 summary: MDX is awesome!
-publishedAt: 2021-06-29
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ab477d24-5745-4343-856e-60aaff3fae43/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=22000d0b6f86583565479132b4973cde731535ed506ea5bb0b7f9b39df17635f&X-Amz-SignedHeaders=host&x-id=GetObject
+date: 2021-06-28T18:30:00.000Z
+coverImage: image-ff3cf6981edf9541d5220c84a6bf965fd9b820a8-2240x1260-png
 canonicalUrl: null
 publicationUrl: null
 ---

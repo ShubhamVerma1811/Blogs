@@ -1,11 +1,11 @@
 ---
-id: '815038a6-a0f4-4083-a05b-9533a16e1c5d'
+id: 'ff8a08aa-8064-4ca2-ba47-2b2f481cbb83'
 title: Implement Protected Routes in NextJS
 slug: implement-protected-routes-in-next-js
 summary:
   Protecting Routes from unauthenticated users is a crucial part of any app
-publishedAt: 2021-01-20
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9bba1986-12a5-4ba7-86b7-7653119dee42/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=546e1f2bca34c058341fa5dcfd22edd2d0b887c93a2efbd5666ec8732b5605de&X-Amz-SignedHeaders=host&x-id=GetObject
+date: 2021-01-20T02:18:00.000Z
+coverImage: null
 canonicalUrl: null
 publicationUrl: null
 ---

@@ -1,10 +1,10 @@
 ---
-id: '96e3a30a-e278-4e6e-afbe-75207b4810f4'
+id: '750bc4e4-bae9-43bc-8605-f2eaf084a1a2'
 title: Creating Dynamic Open Graph images for your blogs!
 slug: creating-dynamic-open-graph-images-for-your-blogs
 summary: Automate that shit of creating the images!
-publishedAt: 2022-05-11
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6b7f146e-741b-4bd2-bc0e-831c97c6b1eb/localhost.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=9a4fdcad34e2f6ac59a6483720cb0f948fee7fad674aae295005a55487f02512&X-Amz-SignedHeaders=host&x-id=GetObject
+date: 2022-05-11T02:17:00.000Z
+coverImage: null
 canonicalUrl: null
 publicationUrl: null
 ---

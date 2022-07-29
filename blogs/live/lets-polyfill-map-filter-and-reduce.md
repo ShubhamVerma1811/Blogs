@@ -1,9 +1,9 @@
 ---
-id: 'f1027968-6564-47a3-878e-a6137c908d21'
+id: '23613e06-2bf8-4574-a07e-f15a9c8d67c8'
 title: Let's Polyfill - map(), filter() and reduce()
 slug: lets-polyfill-map-filter-and-reduce
 summary: The hello world of Polyfills
-publishedAt: 2021-05-18
+date: 2021-05-17T18:30:00.000Z
 coverImage: null
 canonicalUrl: null
 publicationUrl: null

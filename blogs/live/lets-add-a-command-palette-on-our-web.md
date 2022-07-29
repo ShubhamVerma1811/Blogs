@@ -1,10 +1,10 @@
 ---
-id: 'e4b5ed18-6f90-4cbb-a26f-9feeba73cd49'
+id: 'd810c46d-f8db-492d-ab07-337a0c0a7e7a'
 title: Let's add a Command Palette on our website
 slug: lets-add-a-command-palette-on-our-web
 summary: Add a raycast style command palette to your website
-publishedAt: 2022-04-03
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/178b584c-391a-4cc0-b46c-e6d7f304e5d9/response.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=11a8b6280a625cd96492cc111a1eae7eed0b95353e47f8672832b930cc5147d6&X-Amz-SignedHeaders=host&x-id=GetObject
+date: 2022-04-02T18:30:00.000Z
+coverImage: null
 canonicalUrl: null
 publicationUrl: null
 ---

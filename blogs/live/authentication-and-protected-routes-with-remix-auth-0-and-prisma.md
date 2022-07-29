@@ -1,15 +1,15 @@
 ---
-id: '218b2e5f-9042-41fb-bcc5-15ac4fdee3e4'
+id: 'f593c01d-6120-4c0b-8d2b-5665fcfe8ceb'
 title: Authentication and Protected Routes using Remix + Auth0 + Prisma
 slug: authentication-and-protected-routes-with-remix-auth-0-and-prisma
 summary: null
-publishedAt: 2022-07-12
-coverImage: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/09bde558-8ee4-4d20-a7b8-11a1496e7e1a/Facebook_cover_-_2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=cfe3d76a96dff67a6d9d9bade40cddb03191fc37d1c15b036722594775fa2757&X-Amz-SignedHeaders=host&x-id=GetObject
+date: 2022-07-12T02:14:00.000Z
+coverImage: image-2c4b6e48376b18c05ef3241271f7fbec23b007ea-2240x1260-png
 canonicalUrl: null
 publicationUrl: null
 ---
 
-![Twitter screenshot of me crying over how I managed to get it to work.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96b10d7d-5b49-4aab-8be8-79051638acc8/flexeetclub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220729%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220729T014117Z&X-Amz-Expires=3600&X-Amz-Signature=701e5df324c4f9a55c52cdaf55f1b36089b9c68a23cb772493e553ba1076ab77&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Twitter screenshot of me crying over how I managed to get it to work.](https://cdn.sanity.io/images/bqrb5wuc/dev/ac4b5d21bb40027aa4dc5959666235119331cb3a-1080x1080.png)
 
 > This blog is not meant to be a tutorial for Remix, Prisma or Auth0. It is only
 > meant to show how to setup a simple authentication system using them.

@@ -1,6 +1,6 @@
 ---
 id: 'ff8a08aa-8064-4ca2-ba47-2b2f481cbb83'
-title: Implement Protected Routes in NextJS
+title: Implement Protected Routes in NextJS!
 slug: implement-protected-routes-in-next-js
 summary:
   Protecting Routes from unauthenticated users is a crucial part of any app

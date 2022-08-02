@@ -1,4 +1,4 @@
-[![Sync Notion Blogs to GitHub](https://github.com/ShubhamVerma1811/Blogs/actions/workflows/update-blogs.yml/badge.svg?branch=main&event=schedule)](https://github.com/ShubhamVerma1811/Blogs/actions/workflows/update-blogs.yml)
+[![Sync Sanity Blogs to GitHub](https://github.com/ShubhamVerma1811/Blogs/actions/workflows/update-blogs.yml/badge.svg?branch=main&event=schedule)](https://github.com/ShubhamVerma1811/Blogs/actions/workflows/update-blogs.yml)
 
 This repo contains the blogs that I've written and which are currently live.
 

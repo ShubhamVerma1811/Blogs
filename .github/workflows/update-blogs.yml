@@ -1,10 +1,10 @@
-name: Sync Notion Blogs to GitHub
+name: Sync Sanity Blogs to GitHub
 on:
   schedule:
     # At 00:00 on every day-of-week
     - cron: '0 0 * * */1'
 jobs:
-  Fetch-Notion-Blogs-and-Write-to-File:
+  Fetch-Sanity-Blogs-and-Write-to-File:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -13,7 +13,7 @@ jobs:
         run: |
           touch .env
           echo SANITY_PROJECT_ID=${{ secrets.SANITY_PROJECT_ID }} >> .env
-      - name: Fetch Notion Blogs and Wirte to File
+      - name: Fetch Sanity Blogs and Wirte to File
         run: |
           yarn
           yarn dev

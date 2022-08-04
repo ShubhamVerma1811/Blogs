@@ -4,7 +4,7 @@ title: Let's Polyfill - map(), filter() and reduce()
 slug: lets-polyfill-map-filter-and-reduce
 summary: The hello world of Polyfills
 date: 2021-05-17T18:30:00.000Z
-coverImage: null
+coverImage: image-851d035f0029c3021eaf2cd311596096d56e833c-2240x1260-png
 canonicalUrl: null
 publicationUrl: null
 ---

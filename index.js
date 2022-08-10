@@ -10,7 +10,12 @@ async function getPosts() {
   const query = `*[_type == "post"] {...,"id":_id,"slug": slug.current}`
   const encodedQuery = encodeURIComponent(query)
   const res = await fetch(
-    `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v2021-03-25/data/query/prod?query=${encodedQuery}`
+    `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v2021-03-25/data/query/prod?query=${encodedQuery}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.SANITY_TOKEN}`
+      }
+    }
   )
 
   return res.json()

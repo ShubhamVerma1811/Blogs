@@ -13,6 +13,7 @@ jobs:
         run: |
           touch .env
           echo SANITY_PROJECT_ID=${{ secrets.SANITY_PROJECT_ID }} >> .env
+          echo SANITY_TOKEN=${{ secrets.SANITY_TOKEN }} >> .env
       - name: Fetch Sanity Blogs and Wirte to File
         run: |
           yarn

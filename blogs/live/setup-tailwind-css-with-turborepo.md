@@ -51,7 +51,7 @@ yarn add -DW tailwindcss postcss autoprefixer
 
 Our root package.json would look like:
 
-```json
+```json:package.json
 {
   // ...
   "devDependencies": {
@@ -75,7 +75,7 @@ In our `packages/config`, let’s create `tailwind.config.js` and
 
 - In `tailwind.config.js`, add the following:
 
-```javascript
+```javascript:tailwind.config.js
 module.exports = {
   content: [
     '../../packages/ui/components/**/*.{ts,tsx}',
@@ -85,18 +85,18 @@ module.exports = {
     extend: {}
   },
   plugins: []
-};
+}
 ```
 
 - In `postcss.config.js`, add the following:
 
-```javascript
+```javascript:postcss.config.js
 module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {}
   }
-};
+}
 ```
 
 ---
@@ -110,33 +110,23 @@ module.exports = {
 
 Add the following in the files:
 
-```javascript
-/*
-apps/web/tailwind.config.js
-apps/docs/tailwind.config.js
-packages/ui/tailwind.config.js
-*/
-module.exports = require('config/tailwind.config');
+```javascript:{apps,packages}/{web,docs,ui}/tailwind.config.js
+module.exports = require('config/tailwind.config')
 ```
 
-```javascript
-/*
-apps/web/postcss.config.js
-apps/web/postcss.config.js
-packages/ui/postcss.config,js
-*/
-module.exports = require('config/postcss.config');
+```javascript:{apps,packages}/{web,docs,ui}/postcss.config.js
+module.exports = require('config/postcss.config')
 ```
 
 Lastly, in our `next.config.js` for both `web` and `docs` add this if it’s not
 already present:
 
-```javascript
-const withTM = require('next-transpile-modules')(['ui']);
+```javascript:next.config.js
+const withTM = require('next-transpile-modules')(['ui'])
 
 module.exports = withTM({
   reactStrictMode: true
-});
+})
 ```
 
 ---

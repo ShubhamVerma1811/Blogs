@@ -9,7 +9,7 @@ canonicalUrl: null
 publicationUrl: null
 ---
 
-![Twitter screenshot of me crying over how I managed to get it to work.](https://cdn.sanity.io/images/bqrb5wuc/dev/ac4b5d21bb40027aa4dc5959666235119331cb3a-1080x1080.png)
+![Twitter screenshot of me crying over how I managed to get it to work. [[1080 x 1080]]](https://cdn.sanity.io/images/bqrb5wuc/dev/ac4b5d21bb40027aa4dc5959666235119331cb3a-1080x1080.png)
 
 > This blog is not meant to be a tutorial for Remix, Prisma or Auth0. It is only
 > meant to show how to setup a simple authentication system using them.

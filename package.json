@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "node index.js",
-    "format": "prettier --write * --ignore-path .gitignore"
+    "format": "prettier --write **/*"
   },
   "devDependencies": {
     "eslint": "^8.20.0",

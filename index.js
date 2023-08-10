@@ -31,7 +31,7 @@ async function writeBlogsToFolder(blogs) {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc')
 
   for (const blog of blogs) {
-    const title = blog.slug
+    const title = blog.title
     console.log(`Writing blog ${title}...`)
     const fileName = `${blogFolder}/${title}.md`
     const mdData = `
@@ -49,7 +49,6 @@ ${blog?.body}
 `
     const formattedMdData = prettier.format(mdData, {
       ...prettierConfig,
-      semi: true,
       parser: 'markdown'
     })
 

@@ -1,0 +1,21 @@
+{
+  "name": "sanity-blogs-to-gh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Shubham Verma",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "node-fetch": "^3.2.9",
+    "simple-git": "^3.7.1"
+  },
+  "scripts": {
+    "dev": "node index.js",
+    "format": "prettier --write * --ignore-path .gitignore"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "prettier": "^2.6.2"
+  }
+}

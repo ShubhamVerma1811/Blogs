@@ -31,7 +31,7 @@ In your root file, wrap the App with a KbarProvider and pass it the default
 ```typescript
 // index.js
 
-import { KBarProvider } from 'kbar';
+import { KBarProvider } from 'kbar'
 
 const actions = [
   {
@@ -48,13 +48,13 @@ const actions = [
     keywords: 'twitter',
     perform: () => (window.location.href = 'https://twitter.com/verma__shubham')
   }
-];
+]
 
 return (
   <KBarProvider actions={actions}>
     <App />
   </KBarProvider>
-);
+)
 ```
 
 Now if you press the shortcut, you will see that nothing happens. This is
@@ -76,11 +76,11 @@ import {
   KBarProvider,
   KBarResults,
   KBarSearch
-} from 'kbar';
+} from 'kbar'
 
 const actions = [
   //...
-];
+]
 
 return (
   <KBarProvider actions={actions}>
@@ -93,7 +93,7 @@ return (
     </KBarPortal>
     <App />
   </KBarProvider>
-);
+)
 ```
 
 Now we are able to see a search box when you press the shortcut! But you’ll
@@ -109,7 +109,7 @@ Why are our default `actions` not rendered?
 
 ```typescript
 const Results = () => {
-  const { results } = useMatches();
+  const { results } = useMatches()
   return (
     <KBarResults
       items={results}
@@ -127,16 +127,16 @@ const Results = () => {
           >
             {item.name}
           </p>
-        );
+        )
       }}
     />
-  );
-};
+  )
+}
 
 // USE THE ABOVE COMPONENT right after the KBarSearch />
 
 // ...
-<KBarProvider>
+;<KBarProvider>
   <KBarPortal>
     <KBarPositioner>
       <KBarAnimator>
@@ -147,7 +147,7 @@ const Results = () => {
     </KBarPositioner>
   </KBarPortal>
   <App />
-</KBarProvider>;
+</KBarProvider>
 // ...
 ```
 
@@ -194,7 +194,7 @@ const actions = [
     name: 'Blog 2',
     parent: 'search-blogs'
   }
-];
+]
 ```
 
 ---
@@ -204,24 +204,24 @@ const actions = [
 In our App.js file, we will use the `useKBar()` hook to toggle KBar.
 
 ```typescript
-import { useKBar } from 'kbar';
-import './styles.css';
+import { useKBar } from 'kbar'
+import './styles.css'
 
 export default function App() {
-  const kbar = useKBar();
+  const kbar = useKBar()
 
   return (
     <div className='App'>
       <h1>Hit Ctrl + K or Cmd + K</h1>
       <button
         onClick={() => {
-          kbar.query.toggle();
+          kbar.query.toggle()
         }}
       >
         Toggle Kbar
       </button>
     </div>
-  );
+  )
 }
 ```
 

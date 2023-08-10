@@ -22,7 +22,7 @@ const nextConfig = {
   experimental: {
     optimizeCss: true // enabling this will enable SSR for Tailwind
   }
-};
+}
 ```
 
 We also need to install Critters

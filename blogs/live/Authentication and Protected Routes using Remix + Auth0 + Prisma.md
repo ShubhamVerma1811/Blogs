@@ -86,27 +86,27 @@ You can directly follow the steps for this written in the Remix docs for Prisma
 
 ```typescript
 // app/utils/db.server.ts
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client'
 
-let db: PrismaClient;
+let db: PrismaClient
 
 declare global {
-  var __db: PrismaClient | undefined;
+  var __db: PrismaClient | undefined
 }
 
 // this is needed because in development we don't want to restart
 // the server with every change, but we want to make sure we don't
 // create a new connection to the DB with every change either.
 if (process.env.NODE_ENV === 'production') {
-  db = new PrismaClient();
+  db = new PrismaClient()
 } else {
   if (!global.__db) {
-    global.__db = new PrismaClient();
+    global.__db = new PrismaClient()
   }
-  db = global.__db;
+  db = global.__db
 }
 
-export { db };
+export { db }
 ```
 
 ### Creating session in Remix
@@ -118,7 +118,7 @@ So we can store the user’s session in the cookies
 
 ```typescript
 // app/services/session.server.ts
-import { createCookieSessionStorage } from '@remix-run/node';
+import { createCookieSessionStorage } from '@remix-run/node'
 
 // export the whole sessionStorage object
 export let sessionStorage = createCookieSessionStorage({
@@ -130,10 +130,10 @@ export let sessionStorage = createCookieSessionStorage({
     secrets: ['s3cr3t'], // replace this with an actual secret
     secure: process.env.NODE_ENV === 'production' // enable this in prod only
   }
-});
+})
 
 // you can also export the methods individually for your own usage
-export let { getSession, commitSession, destroySession } = sessionStorage;
+export let { getSession, commitSession, destroySession } = sessionStorage
 ```
 
 ### Creating the authenticator client that uses Auth0 strategy.
@@ -151,15 +151,15 @@ export let { getSession, commitSession, destroySession } = sessionStorage;
 
 ```typescript
 // app/utils/auth.server.ts
-import { Authenticator } from 'remix-auth';
-import { Auth0Strategy } from 'remix-auth-auth0';
-import { sessionStorage } from '~/services/session.server';
-import { db as prisma } from './db.server';
+import { Authenticator } from 'remix-auth'
+import { Auth0Strategy } from 'remix-auth-auth0'
+import { sessionStorage } from '~/services/session.server'
+import { db as prisma } from './db.server'
 
 // Create an instance of the authenticator, pass a generic (optional) with what your
 // strategies will return and will be stored in the session
 
-export const authenticator = new Authenticator(sessionStorage);
+export const authenticator = new Authenticator(sessionStorage)
 
 let auth0Strategy = new Auth0Strategy(
   {
@@ -169,7 +169,7 @@ let auth0Strategy = new Auth0Strategy(
     domain: process.env.AUTH0_DOMAIN_URL!
   },
   async ({ accessToken, refreshToken, extraParams, profile }) => {
-    const email = profile.emails?.[0]?.value;
+    const email = profile.emails?.[0]?.value
     // Get the user data from your DB or API using the tokens and profile
     return prisma.user.upsert({
       where: {
@@ -180,11 +180,11 @@ let auth0Strategy = new Auth0Strategy(
         name: profile.displayName
       },
       update: {}
-    });
+    })
   }
-);
+)
 
-authenticator.use(auth0Strategy);
+authenticator.use(auth0Strategy)
 ```
 
 ---
@@ -195,25 +195,25 @@ authenticator.use(auth0Strategy);
 
 ```typescript
 // app/routes/app/auth0/auth0.tsx
-import type { ActionFunction, LoaderFunction } from '@remix-run/node';
-import { redirect } from '@remix-run/node';
-import { authenticator } from '~/utils/auth.server';
+import type { ActionFunction, LoaderFunction } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
+import { authenticator } from '~/utils/auth.server'
 
 // If user directly goes to this page, we redirect to login
-export const loader: LoaderFunction = () => redirect('/login');
+export const loader: LoaderFunction = () => redirect('/login')
 
 // Post request sent to this route would be handled by the authenticator and redirect you to the Auth0's login page.
 export const action: ActionFunction = ({ request }) => {
-  return authenticator.authenticate('auth0', request);
-};
+  return authenticator.authenticate('auth0', request)
+}
 ```
 
 ### Creating callback route
 
 ```typescript
 // app/routes/app/auth0/callback.tsx
-import type { LoaderFunction } from '@remix-run/node';
-import { authenticator } from '~/utils/auth.server';
+import type { LoaderFunction } from '@remix-run/node'
+import { authenticator } from '~/utils/auth.server'
 
 /*
 We import the authenticator and based on the login state we redirect them to the
@@ -224,23 +224,23 @@ export const loader: LoaderFunction = ({ request }) => {
   return authenticator.authenticate('auth0', request, {
     successRedirect: '/',
     failureRedirect: '/login'
-  });
-};
+  })
+}
 ```
 
 ### Creating login route
 
 ```typescript
-import type { LoaderFunction } from '@remix-run/node';
-import { Form } from '@remix-run/react';
-import { authenticator } from '~/utils/auth.server';
+import type { LoaderFunction } from '@remix-run/node'
+import { Form } from '@remix-run/react'
+import { authenticator } from '~/utils/auth.server'
 
 // If the user lands on this page, we redirect back to / if they are already logged in.
 export const loader: LoaderFunction = async ({ request }) => {
   return await authenticator.isAuthenticated(request, {
     successRedirect: '/'
-  });
-};
+  })
+}
 
 // This form would take us to the auth0 route, which would redirect to the Auth0 login page.
 
@@ -249,7 +249,7 @@ export default function Login() {
     <Form action='/auth/auth0' method='post'>
       <button>Login with Auth0</button>
     </Form>
-  );
+  )
 }
 ```
 
@@ -257,15 +257,15 @@ export default function Login() {
 
 ```typescript
 // app/routes/app/auth0/logout.tsx
-import type { LoaderFunction } from '@remix-run/node';
-import { authenticator } from '~/utils/auth.server';
+import type { LoaderFunction } from '@remix-run/node'
+import { authenticator } from '~/utils/auth.server'
 
 // Here we use the logout function of the authenticator to logout the user and clear the Auth0 session.
 export const loader: LoaderFunction = async ({ request }) => {
   return authenticator.logout(request, {
     redirectTo: '/login'
-  });
-};
+  })
+}
 ```
 
 ---

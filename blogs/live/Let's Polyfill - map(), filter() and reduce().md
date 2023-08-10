@@ -17,10 +17,10 @@ that were returned from the callback
 Example:
 
 ```javascript
-const arr = [1, 2, 3, 4];
-const res = arr.map((el) => el * 2);
+const arr = [1, 2, 3, 4]
+const res = arr.map((el) => el * 2)
 
-console.log(res); // returns [2,4,6,8]
+console.log(res) // returns [2,4,6,8]
 ```
 
 Let’s create our own `map` method called `myMap`
@@ -35,26 +35,26 @@ Let’s create our own `map` method called `myMap`
 ```javascript
 function myMap(cb) {
   // rseults results array that gets returned at the end
-  const results = [];
+  const results = []
 
   for (let i = 0; i < this.length; i++) {
     // returned values of our cb are pushed in the reults[]
     // 'this' referes to the passed array
-    results.push(cb(this[i], i, this));
+    results.push(cb(this[i], i, this))
   }
 
-  return results;
+  return results
 }
 
 // Doing this will allow us to use arr.myMap() syntax
-Array.prototype.myMap = myMap;
+Array.prototype.myMap = myMap
 
-const arr = [1, 2, 3, 4, 5, 6];
+const arr = [1, 2, 3, 4, 5, 6]
 const myMapResult = arr.myMap((el, _idx, _arr) => {
-  return el * 2;
-});
+  return el * 2
+})
 
-console.log(myMapResult); //[2, 4, 6, 8, 10, 12];
+console.log(myMapResult) //[2, 4, 6, 8, 10, 12];
 ```
 
 ---
@@ -67,10 +67,10 @@ items that satisfy the condition provided in our callback
 Example:
 
 ```javascript
-const arr = [1, 2, 3, 4];
-const res = arr.filter((el) => el % 2); // only return even numbers
+const arr = [1, 2, 3, 4]
+const res = arr.filter((el) => el % 2) // only return even numbers
 
-console.log(res); // [2,4]
+console.log(res) // [2,4]
 ```
 
 Let’s create our own `filter` method called `myFilter`
@@ -85,32 +85,32 @@ Let’s create our own `filter` method called `myFilter`
 
 ```javascript
 function myFilter(cb) {
-  const results = [];
+  const results = []
 
   for (let i = 0; i < this.length; i++) {
-    const cbResult = cb(this[i], i, this);
+    const cbResult = cb(this[i], i, this)
     // the returned value of callback is true only then push it to the results
-    if (cbResult) results.push(this[i]);
+    if (cbResult) results.push(this[i])
   }
 
-  return results;
+  return results
 }
 
 // Doing this will allow us to use arr.myFilter() syntax
-Array.prototype.myFilter = myFilter;
+Array.prototype.myFilter = myFilter
 
-const arr = [1, 2, 3, 4, 5, 6];
+const arr = [1, 2, 3, 4, 5, 6]
 
 const foo = [
   { name: 'S', age: 2 },
   { name: 'V', age: 3 }
-];
+]
 
 const myFilterResult = foo.myFilter((el, _idx, _arr) => {
-  return el.name !== 'S';
-});
+  return el.name !== 'S'
+})
 
-console.log(myFilterResult); // [{ name: "V", age: 3 }]
+console.log(myFilterResult) // [{ name: "V", age: 3 }]
 ```
 
 ---
@@ -127,13 +127,13 @@ It takes in two important parameters. `accumulater` and `currentValue`
 Example:
 
 ```javascript
-const arr = [1, 2, 3, 4];
+const arr = [1, 2, 3, 4]
 const res = arr.reduce((acc, curr) => {
-  acc += curr;
-  return acc;
-}); // 10
+  acc += curr
+  return acc
+}) // 10
 
-console.log(res); // 10
+console.log(res) // 10
 ```
 
 Lets create our own `reduce()` method called `myReduce()`
@@ -148,33 +148,33 @@ Lets create our own `reduce()` method called `myReduce()`
 
 ```javascript
 function myReduce(cb, initialValue) {
-  let acc;
-  let curr;
+  let acc
+  let curr
 
   if (!this.length && !initialValue)
-    throw new Error("Can't reduce on empty array, provide initial value");
+    throw new Error("Can't reduce on empty array, provide initial value")
   else {
     //  If initialValue is given then acc is that or acc = is the 0th index of this
-    acc = initialValue ? initialValue : this[0];
+    acc = initialValue ? initialValue : this[0]
     for (let i = 1; i < this.length; i++) {
       // current value of the array
-      curr = this[i];
+      curr = this[i]
       // the retuned cb value is assigned to acc
-      acc = cb(acc, curr, i, this);
+      acc = cb(acc, curr, i, this)
     }
   }
-  return acc;
+  return acc
 }
 
 // Doing this will allow us to use arr.myReduce() syntax
-Array.prototype.myReduce = myReduce;
+Array.prototype.myReduce = myReduce
 
 const myReduceResult = arr.myReduce((acc, curr, _idx, _arr) => {
-  acc += curr;
-  return acc;
-});
+  acc += curr
+  return acc
+})
 
-console.log(myReduceResult); // 21
+console.log(myReduceResult) // 21
 ```
 
 ---

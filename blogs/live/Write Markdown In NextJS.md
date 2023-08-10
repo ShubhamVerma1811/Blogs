@@ -36,11 +36,11 @@ npm install --save @next/mdx @mdx-js/loader
 ```javascript
 const withMDX = require('@next/mdx')({
   extension: /\.mdx$/
-});
+})
 
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
-});
+})
 ```
 
 ---
